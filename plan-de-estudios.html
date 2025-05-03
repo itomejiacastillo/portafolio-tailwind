@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index" />
+
+    <title>Plan de Estudios - Emmanuel Mejía Castillo</title>
+    <!--<link rel="stylesheet" href="output.css">-->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="w-full bg-gray-100 pb-10">
+    <header class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
+        <nav class="mt-4 relative max-w-2xl w-full bg-white border border-gray-200 rounded-[2rem] mx-2 py-2.5 md:flex md:items-center md:justify-between md:py-0 md:px-4 md:mx-auto dark:bg-neutral-900 dark:border-neutral-700">
+          <div class="px-4 md:px-0 flex justify-between items-center">
+            <!-- Logo -->
+            <div>
+              <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80" href="/" aria-label="Preline">
+                <p class="text-white">itomejiacastillo.com</p>
+              </a>
+            </div>
+            <!-- End Logo -->
+    
+            <div class="md:hidden">
+              <!-- Toggle Button -->
+              <button type="button" class="hs-collapse-toggle flex justify-center items-center size-6 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-none focus:bg-gray-200 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" id="hs-navbar-header-floating-collapse" aria-expanded="false" aria-controls="hs-navbar-header-floating" aria-label="Toggle navigation" data-hs-collapse="#hs-navbar-header-floating">
+                <svg class="hs-collapse-open:hidden shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="3" x2="21" y1="6" y2="6" />
+                  <line x1="3" x2="21" y1="12" y2="12" />
+                  <line x1="3" x2="21" y1="18" y2="18" />
+                </svg>
+                <svg class="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </svg>
+              </button>
+              <!-- End Toggle Button -->
+            </div>
+          </div>
+    
+          <div id="hs-navbar-header-floating" class="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow md:block" aria-labelledby="hs-navbar-header-floating-collapse">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-3 mt-3 md:mt-0 py-2 md:py-0 md:ps-7">
+              <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-gray-800 font-medium text-gray-800 focus:outline-none dark:border-neutral-200 dark:text-neutral-200" href="/" aria-current="page">Inicio</a>
+              <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200" href="/#Proyectos">Proyectos</a>
+              <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200" href="/#Habilidades">Mis Habilidades</a>
+              <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200" href="/#SobreMi">Sobre Mí</a>
+            </div>
+          </div>
+        </nav>
+      </header>
+    <!-- Image Grid -->
+    <div class="p-2 my-6 grid grid-cols-1 place-items-center sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+      <div class="w-full h-full max-w-sm p-4 pb-6 text-base rounded-lg shadow-lg bg-gradient-to-b from-blue-400 to-blue-700 text-white">
+      <h2 class="font-bold text-xl mb-2">Clases en total:</h2>
+      <h3 class="text-5xl font-bold">61</h3>
+      </div>
+      <div class="w-full h-full max-w-sm p-4 pb-6 text-base rounded-lg shadow-lg bg-gradient-to-b from-green-400 to-green-700 text-white">
+        <h2 class="font-bold text-xl mb-2">Clases aprobadas:</h2>
+        <h3 id="aprobadas" class="text-5xl font-bold">00</h3>
+      </div>
+      <div class="w-full h-full max-w-sm p-4 pb-6 text-base rounded-lg shadow-lg bg-gradient-to-b from-yellow-400 to-yellow-600 text-white">
+        <h2 class="font-bold text-xl mb-2">Porcentaje de Avance:</h2>
+        <h3 id="percent" class="text-5xl font-bold">00%</h3>
+      </div>
+    </div>
+    <h1 class="mx-auto max-w-7xl px-2 text-2xl md:text-4xl">Plan de Estudios - Ingeniería en Sistemas Computacionales</h1>
+    <h2 class="mx-auto max-w-7xl px-2 text-xl md:text-2xl">Universidad Politécnica de Honduras</h2>
+    
+<div class="p-2 my-6 grid grid-cols-1 place-items-center sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 max-w-7xl mx-auto">
+    <div class="w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">I Periodo</h2>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Español</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Introducción a la Computación</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Matemática I</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Laboratorio de Procesamiento de Datos I</p>
+
+    </div>
+    <div class="w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">II Periodo</h2>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Vectores y Matrices</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Geometría y Trigonometria</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Laboratorio de Procesamiento de Datos II</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Programación I</p>
+
+    </div>
+    <div class="w-full h-full max-w-sm  border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">III Periodo</h2>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Programación II</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Calculo I</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Programación I</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Electiva de Ciencias Naturales</p>
+    </div>
+    <div class="w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">IV Periodo</h2>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Estructura de Datos</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Calculo II</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Programación III</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Física I</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Dibujo Técnico</p>
+    </div>
+    <div class="w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">V Periodo</h2>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Estadistica I</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Física II</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Ecuaciones Diferenciales</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Inglés I</p>
+    </div>
+    <div class="w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">VI Periodo</h2>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Estadistica II</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Matemática Discreta</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Administración General</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Inglés II</p>
+    </div>
+    <div class="w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">VII Periodo</h2>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Organización de Archivos</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Filosofía</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Programación IV</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Inglés III</p>
+    </div>
+    <div class="w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">VIII Periodo</h2>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Métodos Numéricos</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Sistemas de Información</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Sociología</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Contabilidad General</p>
+    </div>
+    <div class="w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">IX Periodo</h2>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Análisis de Algoritmos</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Circuitos Digitales</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Teoría de Bases de Datos I</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Fundamentos de Informática Gráfica</p>
+    </div>
+    <div class="w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">X Periodo</h2>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Contabilidad de Costos</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Buses y Periféricos</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Fundamentos de Inteligencia Artificial</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Historia de Honduras</p>
+    </div>
+    <div class="w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">XI Periodo</h2>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Equipos de Transmisión de Datos</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Informática Gráfica Aplicada</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Teoría de Bases de Datos II</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Lenguajes de Programación</p>
+    </div>
+    <div class="w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">XII Periodo</h2>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Tecnología de Redes Locales</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Ingeniería del Software I</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Sistemas Operativos I</p>
+        <p class="flex"><input checked class="inline mx-1" type="checkbox">Electiva Arte/Deporte</p>
+    </div>
+    <div class="w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">XIII Periodo</h2>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Taller de Ensamblaje I</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Ingeniería del Software II</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Seguridad de la Información</p>
+    </div>
+    <div class="w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">XIV Periodo</h2>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Programación de Sistemas Operativos</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Taller de Ensamblaje II</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Sistemas Operativos II</p>
+    </div>
+    <div class="w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">XV Periodo</h2>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Finanzas</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Administración de Centros de Computo</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Traductores e Intérpretes I</p>
+    </div>
+    <div class="w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100">
+        <h2 class="font-bold text-xl mb-2">XVI Periodo</h2>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Preparación y Evaluación de Proyectos</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Traductores e Intérpretes II</p>
+        <p class="flex"><input class="inline mx-1" type="checkbox">Seminario de Graduación</p>
+    </div>
+ 
+  </div>
+  <!-- End Image Grid -->
+   <!-- JS PLUGINS -->
+  <!-- Required plugins -->
+  <script src="https://preline.co/assets/vendor/preline/dist/index.js?v=2.5.0"></script>
+  <script>function calcularPorcentajeCheckboxes() {
+    // Obtener todos los checkboxes en la página
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    
+    // Calcular el total de checkboxes
+    const totalCheckboxes = checkboxes.length;
+    
+    // Contar cuántos están seleccionados
+    const checkboxesMarcados = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+
+    // Calcular el porcentaje
+    const porcentaje = totalCheckboxes > 0 ? (checkboxesMarcados / totalCheckboxes) * 100 : 0;
+
+    // Mostrar el número de clases aprobadas en el elemento con ID "aprobadas"
+    const elementoAprobadas = document.getElementById("aprobadas");
+    if (elementoAprobadas) {
+        elementoAprobadas.textContent = checkboxesMarcados;
+    } else {
+        console.warn('No se encontró el elemento con ID "aprobadas".');
+    }
+
+      // Mostrar el porcentaje de clases aprobadas en el elemento con ID "percent"
+      const elementoPercent = document.getElementById("percent");
+    if (elementoPercent) {
+        elementoPercent.textContent = `${porcentaje.toFixed(2)}%`;
+    } else {
+        console.warn('No se encontró el elemento con ID "percent".');
+    }
+
+    console.log(`Total de checkboxes: ${totalCheckboxes}`);
+    console.log(`Checkboxes marcados: ${checkboxesMarcados}`);
+    console.log(`Porcentaje de checkboxes marcados: ${porcentaje.toFixed(2)}%`);
+
+    return porcentaje.toFixed(2); // Retorna el porcentaje como un string con 2 decimales
+}
+
+// Asignar el evento a todos los checkboxes
+document.addEventListener("DOMContentLoaded", () => {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', calcularPorcentajeCheckboxes);
+    });
+    
+    // Ejecutar una vez al cargar la página para mostrar el estado inicial
+    calcularPorcentajeCheckboxes();
+});
+
+</script>
+
+</body>
+</html>
