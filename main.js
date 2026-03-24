@@ -40,7 +40,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         // Inicia la animación cuando el elemento es visible
-                        animateProgressBar(57); // Cambia este valor por el porcentaje que desees
+                        animateProgressBar(67); // Cambia este valor por el porcentaje que desees
                         observer.unobserve(progressCircle); // Detiene la observación después de la primera animación
                     }
                 });
