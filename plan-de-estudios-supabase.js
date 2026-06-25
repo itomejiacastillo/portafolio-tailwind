@@ -135,9 +135,14 @@ function createSubjectRow(subject, approvedCodes) {
   const row = document.createElement("label");
   row.className = "flex gap-2 rounded-md px-1 py-1 text-sm text-gray-800";
 
+  const fieldId = `subject-${subject.codigo_clase.replace(/[^a-zA-Z0-9_-]/g, "-")}`;
+  row.htmlFor = fieldId;
+
   const checkbox = document.createElement("input");
   checkbox.className = "mt-1 size-4 shrink-0 accent-green-600";
   checkbox.type = "checkbox";
+  checkbox.id = fieldId;
+  checkbox.name = `subject_${subject.codigo_clase.replace(/[^a-zA-Z0-9_]/g, "_")}`;
   checkbox.checked = approvedCodes.has(subject.codigo_clase);
   checkbox.dataset.code = subject.codigo_clase;
   checkbox.setAttribute("aria-readonly", "true");
