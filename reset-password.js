@@ -51,28 +51,28 @@ async function initRecoveryPage() {
     return;
   }
 
-  // 1. Guardar si el usuario viene de un enlace de recuperación antes de que Supabase limpie/procese la URL
+  // Guardar si el usuario viene de un enlace de recuperación antes de que Supabase limpie la URL
   const recovery = getRecoveryParams();
   const isRecoveryLink = recovery.type === "recovery" || Boolean(recovery.accessToken);
 
-  // Esperamos un momento breve para que la inicialización del cliente de Supabase procese el hash de la URL
+  // Esperamos un momento breve para que la inicialización de Supabase procese el hash
   await new Promise((resolve) => setTimeout(resolve, 500));
 
   try {
     const { data: { user }, error } = await supabaseClient.auth.getUser();
 
-    // Exigimos obligatoriamente que provenga de un link de recuperación y que exista el usuario
-    if (!isRecoveryLink || error || !user) {
-      showMessage("El enlace de recuperación es inválido o ha expirado. Por favor, solicita uno nuevo desde la pantalla de inicio de sesión.", "error");
-      elements.formContainer.classList.add("hidden");
-    } else {
+    // Habilitar el formulario si viene de un link de recuperación O si ya tiene una sesión iniciada válida
+    if (isRecoveryLink || (user && !error)) {
       hideMessage();
       elements.userEmailDisplay.textContent = user.email;
       elements.formContainer.classList.remove("hidden");
+    } else {
+      showMessage("El enlace de recuperación es inválido o ha expirado. Por favor, solicita uno nuevo desde la pantalla de inicio de sesión.", "error");
+      elements.formContainer.classList.add("hidden");
     }
   } catch (err) {
     console.error(err);
-    showMessage("Ocurrió un error al validar la sesión de recuperación.", "error");
+    showMessage("Ocurrió un error al validar la sesión.", "error");
     elements.formContainer.classList.add("hidden");
   }
 
