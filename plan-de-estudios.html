@@ -37,13 +37,90 @@
           <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-gray-800 font-medium text-gray-800 focus:outline-none dark:border-neutral-200 dark:text-neutral-200" href="/" aria-current="page">Inicio</a>
           <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200" href="/#Proyectos">Proyectos</a>
           <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200" href="/#Habilidades">Mis Habilidades</a>
-          <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200" href="/#SobreMi">Sobre Mi</a>
+          <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent font-medium text-gray-500 hover:text-gray-800 focus:outline-none dark:border-transparent dark:text-neutral-400 dark:hover:text-neutral-200" href="/#SobreMi">Sobre Mi</a>
+          <button id="login-button" type="button" class="self-start py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent font-medium text-gray-500 hover:text-gray-800 focus:outline-none dark:border-transparent dark:text-neutral-400 dark:hover:text-neutral-200">
+            Ingresar
+          </button>
         </div>
       </div>
     </nav>
   </header>
 
   <main>
+    <section id="auth-modal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/50 px-4 py-6">
+      <div class="w-full max-w-md rounded-xl bg-white p-6 shadow-2xl">
+        <div class="mb-5 flex items-center justify-between gap-4">
+          <div>
+            <h2 class="text-xl font-bold text-gray-900">Ingresar</h2>
+            <p class="text-sm text-gray-500">Usa tu cuenta autorizada para editar el plan.</p>
+          </div>
+          <button id="auth-modal-close" type="button" class="flex size-9 items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500" aria-label="Cerrar">
+            <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <form id="login-form" class="space-y-4">
+          <div>
+            <label for="login-email" class="mb-1 block text-sm font-medium text-gray-700">Correo</label>
+            <input id="login-email" name="email" type="email" autocomplete="email" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-200">
+          </div>
+          <div>
+            <label for="login-password" class="mb-1 block text-sm font-medium text-gray-700">Contraseña</label>
+            <input id="login-password" name="password" type="password" autocomplete="current-password" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-200">
+          </div>
+          <p id="auth-message" class="hidden rounded-lg border p-3 text-sm"></p>
+          <button id="login-submit" type="submit" class="w-full rounded-lg bg-gray-900 px-4 py-2.5 font-semibold text-white transition hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+            Iniciar sesion
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section id="edit-modal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/50 px-4 py-6">
+      <div class="w-full max-w-md rounded-xl bg-white p-6 shadow-2xl">
+        <div class="mb-5 flex items-center justify-between gap-4">
+          <div>
+            <h2 class="text-xl font-bold text-gray-900">Detalles de Asignatura</h2>
+            <p class="text-sm text-gray-500">Edita el estado y la calificación de la clase.</p>
+          </div>
+          <button id="edit-modal-close" type="button" class="flex size-9 items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500" aria-label="Cerrar">
+            <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <form id="edit-form" class="space-y-4">
+          <div>
+            <label class="mb-1 block text-sm font-medium text-gray-500">Código de Clase</label>
+            <div id="edit-code" class="w-full rounded-lg bg-gray-100 border border-gray-200 px-3 py-2 text-gray-700 font-semibold"></div>
+          </div>
+          <div>
+            <label class="mb-1 block text-sm font-medium text-gray-500">Nombre de la Clase</label>
+            <div id="edit-name" class="w-full rounded-lg bg-gray-100 border border-gray-200 px-3 py-2 text-gray-700 font-medium"></div>
+          </div>
+          <div>
+            <label for="edit-status" class="mb-1 block text-sm font-medium text-gray-700">Estado</label>
+            <select id="edit-status" name="status" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-200">
+              <option value="PENDIENTE">PENDIENTE</option>
+              <option value="APROBADO">APROBADO</option>
+            </select>
+          </div>
+          <div id="edit-grade-container">
+            <label for="edit-grade" class="mb-1 block text-sm font-medium text-gray-700">Calificación</label>
+            <input id="edit-grade" name="calificacion" type="number" min="0" max="100" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-200">
+          </div>
+          <button id="edit-submit" type="submit" class="w-full rounded-lg bg-gray-900 px-4 py-2.5 font-semibold text-white transition hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+            Guardar
+          </button>
+        </form>
+      </div>
+    </section>
+
     <section class="p-2 my-6 grid grid-cols-1 place-items-center sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
       <div class="w-full h-full max-w-sm p-4 pb-6 text-base rounded-lg shadow-lg bg-gradient-to-b from-green-400 to-green-700 text-white">
         <h2 class="font-bold text-xl mb-2">Clases aprobadas:</h2>
@@ -115,6 +192,7 @@
   </footer>
 
   <script src="https://preline.co/assets/vendor/preline/dist/index.js?v=2.5.0"></script>
-  <script src="plan-de-estudios-supabase.js?v=3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="plan-de-estudios-supabase.js?v=4"></script>
 </body>
 </html>
