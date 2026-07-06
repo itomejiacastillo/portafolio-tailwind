@@ -1,0 +1,103 @@
+:root {
+  --bg-color: #14181a;
+  --badge-bg: #1f2a23;
+  --badge-text: #cbd5e1;
+  --icon-box-bg: #1f2a23;
+  --icon-box-text: #cbd5e1;
+  --btn-solid-bg: #4b5563;
+  --btn-solid-text: #f8fafc;
+  --btn-solid-hover: #64748b;
+  --btn-surface-bg: #1f2732;
+  --btn-surface-text: #cbd5e1;
+  --btn-surface-border: #334155;
+  --btn-surface-hover: #111827;
+  --card-bg: #181f1b;
+  --card-border: #232d26;
+
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #6b7280;
+  --text-para: #9ca3af;
+  --hr-border: #1f2937;
+}
+
+html:not(.dark) {
+  --bg-color: #f8fafc;
+  --badge-bg: #e2e8f0;
+  --badge-text: #334155;
+  --icon-box-bg: #e2e8f0;
+  --icon-box-text: #334155;
+  --btn-solid-bg: #0f172a;
+  --btn-solid-text: #ffffff;
+  --btn-solid-hover: #1e293b;
+  --btn-surface-bg: #ffffff;
+  --btn-surface-text: #334155;
+  --btn-surface-border: #cbd5e1;
+  --btn-surface-hover: #f1f5f9;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-para: #475569;
+  --hr-border: #cbd5e1;
+}
+
+body { background-color: var(--bg-color); transition: background-color 0.3s, color 0.3s; }
+.badge { background-color: var(--badge-bg); color: var(--badge-text); transition: all 0.3s; }
+.tech-card { transition: transform 0.2s ease, border-color 0.2s ease; }
+.tech-card:hover { transform: translateY(-4px); }
+.icon-box { background-color: var(--icon-box-bg); color: var(--icon-box-text); transition: all 0.3s; }
+.btn-solid { background-color: var(--btn-solid-bg); color: var(--btn-solid-text); transition: all 0.3s; }
+.btn-solid:hover { background-color: var(--btn-solid-hover); }
+.btn-surface { background-color: var(--btn-surface-bg); color: var(--btn-surface-text); border: 1px solid var(--btn-surface-border); transition: all 0.3s; }
+.btn-surface:hover { background-color: var(--btn-surface-hover); }
+.card { background-color: var(--card-bg); border: 1px solid var(--card-border); transition: all 0.3s; }
+
+.text-dynamic-primary { color: var(--text-primary); transition: color 0.3s; }
+.text-dynamic-secondary { color: var(--text-secondary); transition: color 0.3s; }
+.text-dynamic-muted { color: var(--text-muted); transition: color 0.3s; }
+.text-dynamic-para { color: var(--text-para); transition: color 0.3s; }
+.border-dynamic { border-color: var(--hr-border); transition: border-color 0.3s; }
+
+/* Gallery - single visible cover image */
+.pswp-gallery {
+  position: relative;
+  display: block;
+}
+.pswp-gallery > a:first-child {
+  display: block;
+  cursor: zoom-in;
+}
+.pswp-gallery > a:first-child img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--hr-border);
+  object-fit: cover;
+  transition: opacity 0.2s;
+  display: block;
+}
+.pswp-gallery > a:first-child:hover img {
+  opacity: 0.85;
+}
+/* Hidden extra photos - PhotoSwipe picks them up */
+.pswp-gallery > a.pswp-hidden {
+  display: none;
+}
+/* Photo count badge */
+.pswp-gallery .pswp-count {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 20px;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}

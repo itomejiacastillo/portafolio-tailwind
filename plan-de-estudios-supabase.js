@@ -224,7 +224,8 @@ function groupByPeriod(subjects) {
 
 function createSubjectRow(subject, approvedCodes) {
   const row = document.createElement("label");
-  row.className = `flex gap-2 rounded-md px-1 py-1 text-sm text-gray-800 ${authSession ? "cursor-pointer hover:bg-white" : ""}`;
+  row.className = `flex gap-2 rounded-md px-1 py-1 text-sm ${authSession ? "cursor-pointer" : ""}`;
+  row.style.color = "var(--text-primary)";
 
   const fieldId = `subject-${subject.codigo_clase.replace(/[^a-zA-Z0-9_-]/g, "-")}`;
   row.htmlFor = fieldId;
@@ -253,11 +254,11 @@ function createSubjectRow(subject, approvedCodes) {
   content.className = "min-w-0";
 
   const name = document.createElement("span");
-  name.className = "block leading-snug";
+  name.className = "block leading-snug theme-text-primary";
   name.textContent = subject.nombre_clase || "Asignatura sin nombre";
 
   const meta = document.createElement("span");
-  meta.className = "block text-xs text-gray-500";
+  meta.className = "block text-xs theme-text-muted";
   const units = subject.unidades_valorativas ? ` - ${subject.unidades_valorativas} UV` : "";
   meta.textContent = `${subject.codigo_clase}${units}`;
 
@@ -408,10 +409,10 @@ function renderSubjects(subjects, approvedCodes) {
 
   groupedSubjects.forEach((periodGroup) => {
     const card = document.createElement("article");
-    card.className = "w-full h-full max-w-sm border border-gray-300 p-4 pb-6 text-base rounded-lg shadow-lg bg-gray-100";
+    card.className = "theme-surface w-full h-full max-w-sm border p-4 pb-6 text-base rounded-lg shadow-lg";
 
     const title = document.createElement("h2");
-    title.className = "font-bold text-xl mb-2";
+    title.className = "font-bold text-xl mb-2 theme-text-primary";
     title.textContent = periodGroup.label;
 
     const list = document.createElement("div");
@@ -519,7 +520,7 @@ function renderLoading() {
   elements.grid.replaceChildren();
   for (let index = 0; index < 8; index += 1) {
     const placeholder = document.createElement("div");
-    placeholder.className = "w-full h-40 max-w-sm animate-pulse rounded-lg border border-gray-200 bg-white shadow-lg";
+    placeholder.className = "theme-surface w-full h-40 max-w-sm animate-pulse rounded-lg border shadow-lg";
     elements.grid.appendChild(placeholder);
   }
 }
