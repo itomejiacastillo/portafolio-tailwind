@@ -2195,7 +2195,8 @@ html:not(.dark) .offline-pill {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  flex-shrink: 0;
+  max-width: 100%;
+  min-width: 0;
 }
 
 @media (max-width: 1099px) {
@@ -2259,6 +2260,14 @@ html:not(.dark) .offline-pill {
 
   .case-cta-title {
     font-size: 36px;
+  }
+
+  .case-cta-actions {
+    width: 100%;
+  }
+
+  .case-cta-actions .btn {
+    flex: 1 1 100%;
   }
 
   .arch-protocol-badge {
