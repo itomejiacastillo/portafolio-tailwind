@@ -1,503 +1,580 @@
 <!DOCTYPE html>
 <html lang="es" class="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Portafolio de Emmanuel Mejía Castillo, desarrollador junior en Honduras, con experiencia en frontend, Supabase y aplicaciones móviles.">
-<title>Emmanuel Mejía Castillo | Desarrollador Jr. en Honduras</title>
-<link rel="stylesheet" href="output.css">
-<link rel="stylesheet" href="styles.css">
-<script>
-if (localStorage.getItem('color-theme') === 'light' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) { document.documentElement.classList.remove('dark'); } else { document.documentElement.classList.add('dark'); }
-</script>
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css"></noscript>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Portafolio de Emmanuel Mejía Castillo, desarrollador junior en Honduras, con experiencia en frontend, Supabase y aplicaciones móviles.">
+  <meta name="theme-color" id="meta-theme-color" content="#0F0E0C">
+  <title>Emmanuel Mejía Castillo | Desarrollador Jr. en Honduras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+  <script src="theme-init.js"></script>
+  <link rel="stylesheet" href="output.css">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css"></noscript>
 </head>
-<body class="text-dynamic-secondary font-sans min-h-screen py-12 px-4 overflow-x-hidden">
-<div class="max-w-4xl mx-auto flex flex-col gap-8">
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a href="index.html" class="site-brand">Emmanuel Mejía</a>
 
-  <!-- Header -->
-  <div class="flex flex-col md:flex-row items-center min-h-[70dvh] py-auto md:min-h-0 md:items-start gap-5 justify-center md:justify-start md:my-10">
-    <img src="perfils.webp" alt="Emmanuel Mejía Castillo" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-slate-600 shrink-0" width="160" height="160" fetchpriority="high">
-    <div class="flex flex-col gap-2 items-center md:items-start text-center md:text-left w-full">
-      <h1 class="text-2xl sm:text-3xl font-bold text-dynamic-primary leading-tight">Emmanuel Mejía Castillo</h1>
-      <h2 class="text-lg sm:text-xl font-semibold text-dynamic-secondary">Desarrollador Jr.</h2>
-      <p class="text-dynamic-muted text-sm flex items-center gap-1">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-        Danlí, Honduras
-      </p>
-      <div class="flex flex-wrap justify-center md:justify-start items-center gap-x-2 gap-y-4 mt-1">
-        <a href="mailto:emmanuelm.castillo@outlook.com" class="btn-solid text-sm font-medium px-4 py-2 rounded-full flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-          emmanuelm.castillo@outlook.com
-        </a>
-        <div class="flex gap-2">
-          <a href="cv.html" target="_blank" class="btn-surface text-sm font-medium px-4 py-2 rounded-full flex items-center gap-2" aria-label="Ver CV">
-          CV
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
-        </a>
-        <a href="https://github.com/itomejiacastillo" target="_blank" class="btn-surface w-9 h-9 rounded-full flex items-center justify-center" aria-label="Github">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-        </a>
-        <a href="https://wa.me/+50498785749" target="_blank" class="btn-surface w-9 h-9 rounded-full flex items-center justify-center" aria-label="WhatsApp">
-          <svg fill="currentColor" width="16" height="16" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M26.576 5.363c-2.69-2.69-6.406-4.354-10.511-4.354-8.209 0-14.865 6.655-14.865 14.865 0 2.732 0.737 5.291 2.022 7.491l-0.038-0.070-2.109 7.702 7.879-2.067c2.051 1.139 4.498 1.809 7.102 1.809h0.006c8.209-0.003 14.862-6.659 14.862-14.868 0-4.103-1.662-7.817-4.349-10.507l0 0zM16.062 28.228h-0.005c-0 0-0.001 0-0.001 0-2.319 0-4.489-0.64-6.342-1.753l0.056 0.031-0.451-0.267-4.675 1.227 1.247-4.559-0.294-0.467c-1.185-1.862-1.889-4.131-1.889-6.565 0-6.822 5.531-12.353 12.353-12.353s12.353 5.531 12.353 12.353c0 6.822-5.53 12.353-12.353 12.353h-0zM22.838 18.977c-0.371-0.186-2.197-1.083-2.537-1.208-0.341-0.124-0.589-0.185-0.837 0.187-0.246 0.371-0.958 1.207-1.175 1.455-0.216 0.249-0.434 0.279-0.805 0.094-1.15-0.466-2.138-1.087-2.997-1.852l0.010 0.009c-0.799-0.74-1.484-1.587-2.037-2.521l-0.028-0.052c-0.216-0.371-0.023-0.572 0.162-0.757 0.167-0.166 0.372-0.434 0.557-0.65 0.146-0.179 0.271-0.384 0.366-0.604l0.006-0.017c0.043-0.087 0.068-0.188 0.068-0.296 0-0.131-0.037-0.253-0.101-0.357l0.002 0.003c-0.094-0.186-0.836-2.014-1.145-2.758-0.302-0.724-0.609-0.625-0.836-0.637-0.216-0.010-0.464-0.012-0.712-0.012-0.395 0.010-0.746 0.188-0.988 0.463l-0.001 0.002c-0.802 0.761-1.3 1.834-1.3 3.023 0 0.026 0 0.053 0.001 0.079l-0-0.004c0.131 1.467 0.681 2.784 1.527 3.857l-0.012-0.015c1.604 2.379 3.742 4.282 6.251 5.564l0.094 0.043c0.548 0.248 1.25 0.513 1.968 0.74l0.149 0.041c0.442 0.14 0.951 0.221 1.479 0.221 0.303 0 0.601-0.027 0.889-0.078l-0.031 0.004c1.069-0.223 1.956-0.868 2.497-1.749l0.009-0.017c0.165-0.366 0.261-0.793 0.261-1.242 0-0.185-0.016-0.366-0.047-0.542l0.003 0.019c-0.092-0.155-0.34-0.247-0.712-0.434z"></path>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="#Proyectos" class="site-nav-link">Proyectos</a>
+        <a href="#Habilidades" class="site-nav-link">Stack</a>
+        <a href="#Formacion" class="site-nav-link">Formación</a>
+        <a href="#Contacto" class="site-nav-link">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="cv.html" class="btn btn-secondary header-cv-btn">Descargar CV</a>
+        <button
+          id="mobile-menu-toggle"
+          type="button"
+          class="mobile-menu-btn"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <svg data-menu-icon="open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
           </svg>
-        </a>
-        <a href="tel:+50498785749" target="_blank" class="btn-surface w-9 h-9 rounded-full flex items-center justify-center" aria-label="Teléfono">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3.09 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72 12.52 12.52 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L9.91 10.09a16 16 0 0 0 6 6l1.35-1.35a2 2 0 0 1 2.11-.45 12.52 12.52 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-        </a>
-        </div>        
-      </div>
-    </div>
-  </div>
-
-  <!-- Sobre mi -->
-  <div class="flex flex-col gap-2">
-    <h2 class="text-3xl md:text-4xl font-bold text-dynamic-primary mb-4 md:mb-6" id="SobreMi">Sobre mí</h2>
-    <p class="text-dynamic-para leading-relaxed">
-      Soy estudiante de Ingeniería en Sistemas Computacionales, enfocado en programación y en la construcción de proyectos de software.</p>
-    <p class="text-dynamic-para leading-relaxed">
-      He desarrollado soluciones como un generador de etiquetas QR desde Excel y un sistema de trazabilidad de producción para la industria tabacalera.
-    </p>
-    <p class="text-dynamic-para leading-relaxed">
-      Me interesa comprender a fondo cómo funcionan los sistemas, con una mentalidad de aprendizaje continuo y enfoque en resolver retos complejos con soluciones prácticas.</p>
-  </div>
-
-  <hr class="border-dynamic">
-
-  <!-- Tecnologías -->
-<div class="flex flex-col gap-4">
-  <h2 class="text-3xl md:text-4xl font-bold text-dynamic-primary mb-4 md:mb-6" id="Habilidades">Tecnologías</h2>
-<p class="text-dynamic-secondary text-base md:text-base max-w-2xl">
-      Herramientas y lenguajes con los que trabajo día a día, desde desarrollo web front-end hasta aplicaciones de escritorio:
-    </p>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-
-    <div class="tech-card badge rounded-2xl p-4 flex flex-col items-center justify-center gap-2 text-center">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4.17456 5.15007C4.08271 4.54492 4.55117 4 5.16324 4H18.8368C19.4488 4 19.9173 4.54493 19.8254 5.15007L18.0801 16.6489C18.03 16.9786 17.8189 17.2617 17.5172 17.4037L12.4258 19.7996C12.1561 19.9265 11.8439 19.9265 11.5742 19.7996L6.4828 17.4037C6.18107 17.2617 5.96997 16.9786 5.91993 16.6489L4.17456 5.15007Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M15 7.5H9.5V11H14.5V14.5L12.3714 15.3514C12.133 15.4468 11.867 15.4468 11.6286 15.3514L9.5 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <span class="text-sm font-medium">HTML</span>
-    </div>
-
-    <div class="tech-card badge rounded-2xl p-4 flex flex-col items-center justify-center gap-2 text-center">
-      <svg width="32" height="32" fill="currentColor" viewBox="0 0 470.699 470.699" xmlns="http://www.w3.org/2000/svg">
-        <path d="M426.981,0H43.701C34.52,0,27.632,7.769,28.442,16.949L63.45,409.254c0.811,9.173,8.745,18.774,17.644,21.253 l138.006,38.335c8.887,2.463,23.413,2.479,32.313,0.032l138.177-38.281c8.901-2.472,16.835-11.986,17.645-21.175l35.023-392.469 C443.068,7.769,436.209,0,426.981,0z M360.51,141.611c-0.006,0.06-0.053,0.107-0.112,0.117c-0.06,0.01-0.118-0.021-0.144-0.077 L252.13,185.96c-1.54,0.631-2.418,2.264-2.098,3.897c0.322,1.633,1.754,2.811,3.419,2.811h84.103c4.474,0,8.736,1.9,11.728,5.227 c2.991,3.327,4.429,7.768,3.954,12.216l-13.141,123.273c-0.645,6.048-4.709,11.186-10.447,13.205l-89.269,31.41 c-3.362,1.184-7.027,1.193-10.397,0.025l-88.852-30.778c-5.773-2-9.871-7.153-10.52-13.228l-5.957-55.828 c-0.313-2.931,0.634-5.857,2.604-8.048c1.971-2.192,4.779-3.444,7.727-3.444h24.725c5.313,0,9.769,4.007,10.331,9.289l3.655,34.316 l61.521,21.385l61.803-21.58l7.559-71.17H129.835c-5.297,0-9.746-3.985-10.327-9.25l-3.327-30.164 c-0.508-4.601,2.088-8.982,6.366-10.745l111.837-46.109c1.269-0.523,1.99-1.868,1.724-3.214c-0.267-1.345-1.446-2.314-2.817-2.314 H115.542c-3.545,0-6.518-2.677-6.888-6.201l-3.406-32.421c-0.205-1.951,0.428-3.898,1.741-5.357 c1.313-1.458,3.184-2.291,5.146-2.291h246.379c1.973,0,3.852,0.842,5.166,2.313c1.314,1.472,1.938,3.434,1.715,5.394L360.51,141.611 z"/>
-      </svg>
-      <span class="text-sm font-medium">CSS</span>
-    </div>
-
-    <div class="tech-card badge rounded-2xl p-4 flex flex-col items-center justify-center gap-2 text-center">
-      <svg width="32" height="32" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <g fill="currentColor" fill-rule="nonzero">
-          <path d="M379.328,7337.432 C377.583,7337.432 376.455,7336.6 375.905,7335.512 L375.905,7335.512 L377.435,7334.626 C377.838,7335.284 378.361,7335.767 379.288,7335.767 C380.066,7335.767 380.563,7335.378 380.563,7334.841 C380.563,7334.033 379.485,7333.717 378.724,7333.391 C377.368,7332.814 376.468,7332.089 376.468,7330.558 C376.468,7329.149 377.542,7328.075 379.221,7328.075 C380.415,7328.075 381.275,7328.491 381.892,7329.578 L380.429,7330.518 C380.107,7329.941 379.758,7329.713 379.221,7329.713 C378.67,7329.713 378.321,7330.062 378.321,7330.518 C378.321,7331.082 378.67,7331.31 379.476,7331.659 C381.165,7332.383 382.443,7332.952 382.443,7334.814 C382.443,7336.506 381.114,7337.432 379.328,7337.432 L379.328,7337.432 Z M375,7334.599 C375,7336.546 373.801,7337.575 372.136,7337.575 C370.632,7337.575 369.731,7337 369.288,7336 L369.273,7336 L369.266,7336 L369.262,7336 L370.791,7334.931 C371.086,7335.454 371.352,7335.825 371.996,7335.825 C372.614,7335.825 373,7335.512 373,7334.573 L373,7328 L375,7328 L375,7334.599 Z M364,7339 L384,7339 L384,7319 L364,7319 L364,7339 Z" transform="translate(-364 -7319)"/>
-        </g>
-      </svg>
-      <span class="text-sm font-medium">JavaScript</span>
-    </div>
-
-    <div class="tech-card badge rounded-2xl p-4 flex flex-col items-center justify-center gap-2 text-center">
-      <svg width="32" height="32" viewBox="0 0 63 63" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path d="M42.5938 32.3467C46.5838 32.3467 48.5791 33.8104 48.5791 36.7373C48.6093 37.3604 48.4986 37.9824 48.2549 38.5566C48.0112 39.1308 47.6409 39.6425 47.1719 40.0537C46.0473 40.9167 44.6495 41.3466 43.2344 41.2646H39.2969V32.3369L42.5938 32.3467Z"/>
-        <path d="M42.5938 21.6855C45.7634 21.6855 47.3486 22.8904 47.3486 25.2988C47.3833 25.9086 47.2781 26.5182 47.041 27.0811C46.8039 27.644 46.4411 28.1456 45.9805 28.5469C44.9174 29.3723 43.5944 29.7916 42.25 29.7285H39.2969V21.7148L42.5938 21.6855Z"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M31.5 0C48.897 0 63 14.103 63 31.5C63 48.897 48.897 63 31.5 63C14.103 63 0 48.897 0 31.5C0 14.103 14.103 0 31.5 0ZM43.4014 19.0967H36.3438V43.9033H43.5488C45.6455 43.9798 47.6966 43.2786 49.3076 41.9346C50.0521 41.3022 50.6436 40.5094 51.0391 39.6162C51.4344 38.7231 51.623 37.7525 51.5908 36.7764C51.6562 35.2443 51.1153 33.7481 50.085 32.6123C49.0194 31.5168 47.5926 30.8455 46.0693 30.7227V30.6533C47.3288 30.2704 48.4324 29.4942 49.2188 28.4385C49.998 27.3782 50.4099 26.0921 50.3906 24.7764C50.4129 23.9929 50.2536 23.2149 49.9258 22.5029C49.5979 21.7909 49.1099 21.1643 48.5 20.6719C47.0418 19.5573 45.2341 18.9986 43.4014 19.0967ZM22.6406 38.7354C22.3774 39.4616 22.192 40.2139 22.0889 40.9795H22.0205C21.9242 40.2333 21.7562 39.498 21.5186 38.7842L14.6279 19.0967H11.3896L20.3867 43.9033H23.625L32.7695 19.0967L29.6494 19.0479L22.6406 38.7354Z"/>
-      </svg>
-      <span class="text-sm font-medium">VB.NET</span>
-    </div>
-
-    <div class="tech-card badge rounded-2xl p-4 flex flex-col items-center justify-center gap-2 text-center">
-      <svg fill="currentColor" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-        <path d="M22.039 6.149c-1.122-1.118-2.258-2.221-3.419-3.298-0.327-0.355-0.794-0.577-1.313-0.577-0.008 0-0.015 0-0.023 0h0.001c-0.401 0.039-0.769 0.125-1.117 0.253l0.031-0.010-7.26 3.63zM6.995 6.995v14.709c-0.010 0.083-0.016 0.179-0.016 0.276 0 0.622 0.243 1.188 0.639 1.607l-0.001-0.001 6.142 6.141h10.649v-5.32zM6.148 6.147s6.306-3.151 9.458-4.728c0.496-0.25 1.080-0.396 1.699-0.396 0.052 0 0.105 0.001 0.157 0.003l-0.007-0c0.806 0.159 1.513 0.504 2.101 0.99l-0.008-0.006 11.429 11.43v12.216h-5.32v5.32h-12.414l-11.231-11.231c-0.595-0.612-0.968-1.443-0.985-2.362l-0-0.003c0.051-0.511 0.191-0.978 0.405-1.402l-0.010 0.023z"/>
-      </svg>
-      <span class="text-sm font-medium">Dart</span>
-    </div>
-
-    <div class="tech-card badge rounded-2xl p-4 flex flex-col items-center justify-center gap-2 text-center">
-      <svg fill="currentColor" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18.909 14.84l-8.086 8.070 8.085 8.085h9.214l-8.073-8.083 8.073-8.073h-9.212zM18.892 1.004l-15.013 14.996 4.624 4.624 19.599-19.603h-9.194z"/>
-      </svg>
-      <span class="text-sm font-medium">Flutter</span>
-    </div>
-    <div class="tech-card badge rounded-2xl p-4 flex flex-col items-center justify-center gap-2 text-center">
-  <svg width="32" height="32" viewBox="0 0 109 113" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M63.708 110.284C60.8481 113.885 55.0502 111.912 54.9813 107.315L53.9738 40.0627L99.1935 40.0627C107.384 40.0627 111.952 49.5228 106.859 55.9374L63.708 110.284Z" fill="currentColor"/>
-    <path d="M45.317 2.71484C48.1768 -0.885875 53.9747 1.08788 54.0436 5.68445L54.4693 72.9367H9.8092C1.61906 72.9367 -2.94818 63.4766 2.14486 57.0619L45.317 2.71484Z" fill="currentColor"/>
-  </svg>
-  <span class="text-sm font-medium">Supabase</span>
-</div>
-
-    <div class="tech-card badge rounded-2xl p-4 flex flex-col items-center justify-center gap-2 text-center">
-      <svg fill="currentColor" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-        <path d="M30.428 14.663l-13.095-13.094c-0.35-0.349-0.833-0.565-1.367-0.565s-1.017 0.216-1.367 0.565l0-0-2.713 2.718 3.449 3.449c0.22-0.077 0.473-0.121 0.737-0.121 1.269 0 2.297 1.028 2.297 2.297 0 0.269-0.046 0.526-0.131 0.766l0.005-0.016 3.322 3.324c0.222-0.079 0.479-0.125 0.746-0.125 1.268 0 2.296 1.028 2.296 2.296s-1.028 2.296-2.296 2.296c-1.268 0-2.296-1.028-2.296-2.296 0-0.313 0.063-0.611 0.176-0.883l-0.006 0.015-3.11-3.094v8.154c0.764 0.385 1.279 1.163 1.279 2.061 0 1.27-1.030 2.3-2.3 2.3s-2.3-1.030-2.3-2.3c0-0.634 0.256-1.207 0.671-1.623l-0 0c0.211-0.211 0.462-0.382 0.741-0.502l0.015-0.006v-8.234c-0.842-0.354-1.422-1.173-1.422-2.126 0-0.32 0.065-0.624 0.183-0.901l-0.006 0.015-3.389-3.405-8.98 8.974c-0.348 0.351-0.562 0.834-0.562 1.368s0.215 1.017 0.563 1.368l13.096 13.092c0.349 0.35 0.832 0.566 1.366 0.566s1.016-0.216 1.366-0.566l13.034-13.034c0.35-0.349 0.567-0.833 0.567-1.366s-0.217-1.017-0.567-1.366l-0-0z"/>
-      </svg>
-      <span class="text-sm font-medium">Git y GitHub</span>
-    </div>
-
-  </div>
-</div>
-
-  <!-- Experiencia / Proyectos -->
-<div class="flex flex-col gap-[3.25rem] my-6 justify-between">
-    <div>
-    <h2 class="text-3xl md:text-4xl font-bold text-dynamic-primary mb-4 md:mb-6" id="Proyectos">Proyectos</h2>
-    <p class="text-dynamic-para text-base my-4">A lo largo del tiempo he tratado de desarrollar mis habilidades técnicas desarrollando proyectos reales que funcionen y den soluciones a problemas reales. Estos son los que considero más relevantes a día de hoy:</p>
-    </div>
-
-    <!-- TrazabilidApp -->
-    <div class="flex flex-col sm:flex-row justify-between gap-6 my-6">
-      <div class="flex gap-4 items-start flex-1">
-        <span class="icon-box w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><path d="M14 14h3v3h-3z"></path><path d="M18 14h3v3"></path><path d="M14 18h3v3"></path><path d="M18 18h3v3"></path></svg>
-        </span>
-        <div class="flex flex-col gap-2">
-          <strong class="text-dynamic-primary block text-2xl">TrazabilidApp</strong>
-          <p>Sistema de Trazabilidad de Producción - Industria Tabacalera</p>
-          <p class="text-dynamic-muted text-base my-4">Aplicación android que genera etiquetas con códigos QR para gestionar la trazabilidad de la producción en una empresa tabacalera. Es multiusuarios y ademas es offline-first lo que permite su uso sin conexión a internet, asegurando una alta disponibilidad.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="badge text-xs px-3 py-1 rounded-full flex items-center gap-2">
-              <svg fill="currentColor" width="18" height="18" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                <title>dart</title>
-                <path d="M22.039 6.149c-1.122-1.118-2.258-2.221-3.419-3.298-0.327-0.355-0.794-0.577-1.313-0.577-0.008 0-0.015 0-0.023 0h0.001c-0.401 0.039-0.769 0.125-1.117 0.253l0.031-0.010-7.26 3.63zM6.995 6.995v14.709c-0.010 0.083-0.016 0.179-0.016 0.276 0 0.622 0.243 1.188 0.639 1.607l-0.001-0.001 6.142 6.141h10.649v-5.32zM6.148 6.147s6.306-3.151 9.458-4.728c0.496-0.25 1.080-0.396 1.699-0.396 0.052 0 0.105 0.001 0.157 0.003l-0.007-0c0.806 0.159 1.513 0.504 2.101 0.99l-0.008-0.006 11.429 11.43v12.216h-5.32v5.32h-12.414l-11.231-11.231c-0.595-0.612-0.968-1.443-0.985-2.362l-0-0.003c0.051-0.511 0.191-0.978 0.405-1.402l-0.010 0.023z"></path>
-              </svg> Dart
-            </span>
-            <span class="badge text-xs px-3 py-1 rounded-full flex items-center gap-2">
-              <svg fill="currentColor" width="18" height="18" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                <title>flutter</title>
-                <path d="M18.909 14.84l-8.086 8.070 8.085 8.085h9.214l-8.073-8.083 8.073-8.073h-9.212zM18.892 1.004l-15.013 14.996 4.624 4.624 19.599-19.603h-9.194z"></path>
-              </svg> Flutter
-            </span>
-            <span class="badge text-xs px-3 py-1 rounded-full flex items-center gap-2">
-              <svg fill="currentColor" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <title>Supabase</title>
-              <path d="M21.362 9.354H12V.396a.396.396 0 0 0-.716-.233L2.203 12.424l-.401.562a1.04 1.04 0 0 0 .836 1.659H12v8.959a.396.396 0 0 0 .716.233l9.081-12.261.401-.562a1.04 1.04 0 0 0-.836-1.66z"/>
-            </svg> Supabase
-            </span>
-          </div>
-          <div class="flex gap-2 mt-1">
-            <a href="#" target="_blank" class="btn-surface w-8 h-8 rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="w-full sm:w-96 shrink-0">
-        <!-- TrazabilidApp gallery -->
-        <div class="pswp-gallery" id="gallery-trazabilid">
-          <a href="assets/screenshots/trazabilidapp-1.webp"
-             data-pswp-width="1280" data-pswp-height="800"
-             target="_blank">
-            <img src="assets/screenshots/trazabilidapp-1.webp" alt="TrazabilidApp - pantalla principal" width="1280" height="800" loading="lazy">
-          </a>
-          <span class="pswp-count">1 / 1</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Administrador de Clases -->
-    <div class="flex flex-col sm:flex-row justify-between gap-6 my-6">
-      <div class="flex gap-4 items-start flex-1">
-        <span class="icon-box w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M13 17V9"></path><path d="M18 17V5"></path><path d="M8 17v-3"></path></svg>
-        </span>
-        <div class="flex flex-col gap-2">
-          <strong class="text-dynamic-primary block text-2xl">Administrador de Clases</strong>
-          <p>Web app con Supabase para seguimiento académico</p>
-          <p class="text-dynamic-muted text-base my-4">Aplicación web donde visualizo y doy seguimiento a mi plan de estudios universitario. Resolví retos de permisos RLS en Postgres y autenticación segura con Supabase Auth.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="badge text-xs px-3 py-1 rounded-full flex items-center gap-2">
-            <svg fill="currentColor" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <title>Supabase</title>
-              <path d="M21.362 9.354H12V.396a.396.396 0 0 0-.716-.233L2.203 12.424l-.401.562a1.04 1.04 0 0 0 .836 1.659H12v8.959a.396.396 0 0 0 .716.233l9.081-12.261.401-.562a1.04 1.04 0 0 0-.836-1.66z"/>
-            </svg> Supabase
-            </span>
-            <span class="badge text-xs px-3 py-1 rounded-full flex items-center gap-2">
-              <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-
-</defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
-        <g id="Dribbble-Light-Preview" transform="translate(-420.000000, -7479.000000)" fill="#currentColor" fill-rule="nonzero">
-            <g id="icons" transform="translate(56.000000, 160.000000)">
-                <path d="M379.328,7337.432 C377.583,7337.432 376.455,7336.6 375.905,7335.512 L375.905,7335.512 L377.435,7334.626 C377.838,7335.284 378.361,7335.767 379.288,7335.767 C380.066,7335.767 380.563,7335.378 380.563,7334.841 C380.563,7334.033 379.485,7333.717 378.724,7333.391 C377.368,7332.814 376.468,7332.089 376.468,7330.558 C376.468,7329.149 377.542,7328.075 379.221,7328.075 C380.415,7328.075 381.275,7328.491 381.892,7329.578 L380.429,7330.518 C380.107,7329.941 379.758,7329.713 379.221,7329.713 C378.67,7329.713 378.321,7330.062 378.321,7330.518 C378.321,7331.082 378.67,7331.31 379.476,7331.659 C381.165,7332.383 382.443,7332.952 382.443,7334.814 C382.443,7336.506 381.114,7337.432 379.328,7337.432 L379.328,7337.432 Z M375,7334.599 C375,7336.546 373.801,7337.575 372.136,7337.575 C370.632,7337.575 369.731,7337 369.288,7336 L369.273,7336 L369.266,7336 L369.262,7336 L370.791,7334.931 C371.086,7335.454 371.352,7335.825 371.996,7335.825 C372.614,7335.825 373,7335.512 373,7334.573 L373,7328 L375,7328 L375,7334.599 Z M364,7339 L384,7339 L384,7319 L364,7319 L364,7339 Z" id="javascript-[#155]">
-
-</path>
-            </g>
-        </g>
-    </g>
-</svg> JavaScript
-            </span>
-            <span class="badge text-xs px-3 py-1 rounded-full flex items-center gap-2">
-              <svg width="20" height="20" viewBox="0 0 148 148" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_147_42)"><path d="M37 59.1615C41.9321 39.378 54.2679 29.4844 74 29.4844C103.6 29.4844 107.3 51.7422 122.1 55.4518C131.968 57.9261 140.6 54.2165 148 44.3229C143.068 64.1064 130.732 74 111 74C81.4 74 77.7 51.7422 62.9 48.0326C53.0321 45.5582 44.4 49.2679 37 59.1615ZM0 103.677C4.9321 83.8936 17.2679 74 37 74C66.6 74 70.3 96.2578 85.1 99.9675C94.9679 102.442 103.6 98.7321 111 88.8385C106.068 108.622 93.7321 118.516 74 118.516C44.4 118.516 40.7 96.2578 25.9 92.5482C16.0321 90.0739 7.4 93.7835 0 103.677Z" fill="currentColor"/>
-</g>
-<defs>
-<clipPath id="clip0_147_42">
-<rect width="148" height="148" fill="white"/>
-</clipPath>
-</defs>
-</svg>
- Tailwind CSS
-            </span>
-          </div>
-          <div class="flex gap-2 mt-1">
-            <a href="plan-de-estudios.html" target="_blank" class="btn-surface h-8 rounded-full flex items-center justify-center px-4 gap-2 text-sm font-semibold transition">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> Visitar sitio
-            </a>
-            <a href="https://github.com/itomejiacastillo/portafolio-tailwind" target="_blank" class="btn-surface w-8 h-8 rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="w-full sm:w-96 shrink-0">
-        <!-- Administrador de Clases gallery -->
-        <div class="pswp-gallery" id="gallery-admin-clases">
-          <a href="assets/screenshots/admin-clases-1.webp"
-             data-pswp-width="1280" data-pswp-height="800"
-             target="_blank">
-            <img src="assets/screenshots/admin-clases-1.webp" alt="Admin Clases - dashboard" width="1280" height="800" loading="lazy">
-          </a>
-          <span class="pswp-count">1 / 3</span>
-          <a href="assets/screenshots/admin-clases-2.webp"
-             data-pswp-width="1280" data-pswp-height="800"
-             class="pswp-hidden" target="_blank">
-            <img src="assets/screenshots/admin-clases-2.webp" alt="Admin Clases - detalle de clase" width="1280" height="800" loading="lazy">
-          </a>
-                    <a href="assets/screenshots/admin-clases-3.webp"
-             data-pswp-width="1280" data-pswp-height="800"
-             class="pswp-hidden" target="_blank">
-            <img src="assets/screenshots/admin-clases-3.webp" alt="Admin Clases - detalle de clase" width="1280" height="800" loading="lazy">
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- QR Gen -->
-    <div class="flex flex-col sm:flex-row justify-between gap-6 my-6">
-      <div class="flex gap-4 items-start flex-1">
-        <span class="icon-box w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><path d="M14 14h3v3h-3z"></path><path d="M18 14h3v3"></path><path d="M14 18h3v3"></path><path d="M18 18h3v3"></path></svg>
-        </span>
-        <div class="flex flex-col gap-2">
-          <strong class="text-dynamic-primary block text-2xl">QR Label Generator</strong>
-          <p>Generador de etiquetas QR — VB.NET / Windows Forms</p>
-          <p class="text-dynamic-muted text-base my-4">Aplicación de escritorio que genera etiquetas con códigos QR a partir de archivos Excel, selección configurable de columna/separador para el QR, y exportación a pdf con tamaño de página personalizado.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="badge text-xs px-3 py-1 rounded-full flex items-center gap-2">
-              <svg width="18" height="18" viewBox="0 0 63 63" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M42.5938 32.3467C46.5838 32.3467 48.5791 33.8104 48.5791 36.7373C48.6093 37.3604 48.4986 37.9824 48.2549 38.5566C48.0112 39.1308 47.6409 39.6425 47.1719 40.0537C46.0473 40.9167 44.6495 41.3466 43.2344 41.2646H39.2969V32.3369L42.5938 32.3467Z" />
-                <path d="M42.5938 21.6855C45.7634 21.6855 47.3486 22.8904 47.3486 25.2988C47.3833 25.9086 47.2781 26.5182 47.041 27.0811C46.8039 27.644 46.4411 28.1456 45.9805 28.5469C44.9174 29.3723 43.5944 29.7916 42.25 29.7285H39.2969V21.7148L42.5938 21.6855Z" />
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M31.5 0C48.897 0 63 14.103 63 31.5C63 48.897 48.897 63 31.5 63C14.103 63 0 48.897 0 31.5C0 14.103 14.103 0 31.5 0ZM43.4014 19.0967H36.3438V43.9033H43.5488C45.6455 43.9798 47.6966 43.2786 49.3076 41.9346C50.0521 41.3022 50.6436 40.5094 51.0391 39.6162C51.4344 38.7231 51.623 37.7525 51.5908 36.7764C51.6562 35.2443 51.1153 33.7481 50.085 32.6123C49.0194 31.5168 47.5926 30.8455 46.0693 30.7227V30.6533C47.3288 30.2704 48.4324 29.4942 49.2188 28.4385C49.998 27.3782 50.4099 26.0921 50.3906 24.7764C50.4129 23.9929 50.2536 23.2149 49.9258 22.5029C49.5979 21.7909 49.1099 21.1643 48.5 20.6719C47.0418 19.5573 45.2341 18.9986 43.4014 19.0967ZM22.6406 38.7354C22.3774 39.4616 22.192 40.2139 22.0889 40.9795H22.0205C21.9242 40.2333 21.7562 39.498 21.5186 38.7842L14.6279 19.0967H11.3896L20.3867 43.9033H23.625L32.7695 19.0967L29.6494 19.0479L22.6406 38.7354Z" />
-              </svg> VB.NET
-            </span>
-            <span class="badge text-xs px-3 py-1 rounded-full flex items-center gap-2">
-              <svg width="20" height="20" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24ZM12 15.4085L12.009 23.5892L21.8123 23.5334L21.808 14.0728L12 15.4085ZM21.8034 24.6234L12.0071 24.5599L12.0076 32.7445L21.811 34.0923L21.8034 24.6234ZM22.9923 13.898V23.5163L35.997 23.4131V12L22.9923 13.898ZM36 24.7125L22.9741 24.6912L22.9923 34.2387L35.9969 36.0742L36 24.7125Z" fill="currentColor"/></svg> Windows Forms
-            </span>
-          </div>
-          <div class="flex gap-2 mt-1">
-            <a href="https://github.com/itomejiacastillo/exceltoqr" target="_blank" class="btn-surface w-8 h-8 rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="w-full sm:w-96 shrink-0">
-        <!-- QR Gen gallery -->
-        <div class="pswp-gallery" id="gallery-qrgen">
-          <a href="assets/screenshots/qrgen-1.webp"
-             data-pswp-width="1280" data-pswp-height="800"
-             target="_blank">
-            <img src="assets/screenshots/qrgen-1.webp" alt="QR Gen - lienzo de diseño" width="1280" height="800" loading="lazy">
-          </a>
-          <span class="pswp-count">1 / 3</span>
-          <a href="assets/screenshots/qrgen-2.webp"
-             data-pswp-width="1280" data-pswp-height="800"
-             class="pswp-hidden" target="_blank">
-            <img src="assets/screenshots/qrgen-2.webp" alt="QR Gen - exportacion PDF" width="1280" height="800" loading="lazy">
-          </a>
-                    <a href="assets/screenshots/qrgen-3.webp"
-             data-pswp-width="1280" data-pswp-height="800"
-             class="pswp-hidden" target="_blank">
-            <img src="assets/screenshots/qrgen-3.webp" alt="QR Gen - exportacion PDF" width="1280" height="800" loading="lazy">
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- leostamales.com -->
-    <div class="flex flex-col sm:flex-row justify-between gap-6 my-6">
-      <div class="flex gap-4 items-start flex-1">
-        <span class="icon-box w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-        </span>
-        <div class="flex flex-col gap-2">
-          <strong class="text-dynamic-primary block text-2xl">leostamales.com</strong>
-          <p>Landing page para negocio local</p>
-          <p class="text-dynamic-muted text-base my-4">Landing page que diseñé y desarrollé para promocionar el negocio Leo´s Tamales en Los Ángeles, California, EEUU. Enfocada en presentación de producto, información de contacto y llamado a la acción.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="badge text-xs px-3 py-1 rounded-full flex items-center gap-2">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.17456 5.15007C4.08271 4.54492 4.55117 4 5.16324 4H18.8368C19.4488 4 19.9173 4.54493 19.8254 5.15007L18.0801 16.6489C18.03 16.9786 17.8189 17.2617 17.5172 17.4037L12.4258 19.7996C12.1561 19.9265 11.8439 19.9265 11.5742 19.7996L6.4828 17.4037C6.18107 17.2617 5.96997 16.9786 5.91993 16.6489L4.17456 5.15007Z" />
-                <path d="M15 7.5H9.5V11H14.5V14.5L12.3714 15.3514C12.133 15.4468 11.867 15.4468 11.6286 15.3514L9.5 14.5" />
-              </svg> HTML
-            </span>
-            <span class="badge text-xs px-3 py-1 rounded-full flex items-center gap-2">
-              <svg fill="currentColor" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 470.699 470.699" xml:space="preserve">
-<g id="SVGRepo_bgCarrier" stroke-width="0"/>
-<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-<g id="SVGRepo_iconCarrier"> <path d="M426.981,0H43.701C34.52,0,27.632,7.769,28.442,16.949L63.45,409.254c0.811,9.173,8.745,18.774,17.644,21.253 l138.006,38.335c8.887,2.463,23.413,2.479,32.313,0.032l138.177-38.281c8.901-2.472,16.835-11.986,17.645-21.175l35.023-392.469 C443.068,7.769,436.209,0,426.981,0z M360.51,141.611c-0.006,0.06-0.053,0.107-0.112,0.117c-0.06,0.01-0.118-0.021-0.144-0.077 L252.13,185.96c-1.54,0.631-2.418,2.264-2.098,3.897c0.322,1.633,1.754,2.811,3.419,2.811h84.103c4.474,0,8.736,1.9,11.728,5.227 c2.991,3.327,4.429,7.768,3.954,12.216l-13.141,123.273c-0.645,6.048-4.709,11.186-10.447,13.205l-89.269,31.41 c-3.362,1.184-7.027,1.193-10.397,0.025l-88.852-30.778c-5.773-2-9.871-7.153-10.52-13.228l-5.957-55.828 c-0.313-2.931,0.634-5.857,2.604-8.048c1.971-2.192,4.779-3.444,7.727-3.444h24.725c5.313,0,9.769,4.007,10.331,9.289l3.655,34.316 l61.521,21.385l61.803-21.58l7.559-71.17H129.835c-5.297,0-9.746-3.985-10.327-9.25l-3.327-30.164 c-0.508-4.601,2.088-8.982,6.366-10.745l111.837-46.109c1.269-0.523,1.99-1.868,1.724-3.214c-0.267-1.345-1.446-2.314-2.817-2.314 H115.542c-3.545,0-6.518-2.677-6.888-6.201l-3.406-32.421c-0.205-1.951,0.428-3.898,1.741-5.357 c1.313-1.458,3.184-2.291,5.146-2.291h246.379c1.973,0,3.852,0.842,5.166,2.313c1.314,1.472,1.938,3.434,1.715,5.394L360.51,141.611 z"/> </g>
-
-</svg> CSS
-            </span>
-            <span class="badge text-xs px-3 py-1 rounded-full flex items-center gap-2">
-              <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-
-</defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
-        <g id="Dribbble-Light-Preview" transform="translate(-420.000000, -7479.000000)" fill="#currentColor" fill-rule="nonzero">
-            <g id="icons" transform="translate(56.000000, 160.000000)">
-                <path d="M379.328,7337.432 C377.583,7337.432 376.455,7336.6 375.905,7335.512 L375.905,7335.512 L377.435,7334.626 C377.838,7335.284 378.361,7335.767 379.288,7335.767 C380.066,7335.767 380.563,7335.378 380.563,7334.841 C380.563,7334.033 379.485,7333.717 378.724,7333.391 C377.368,7332.814 376.468,7332.089 376.468,7330.558 C376.468,7329.149 377.542,7328.075 379.221,7328.075 C380.415,7328.075 381.275,7328.491 381.892,7329.578 L380.429,7330.518 C380.107,7329.941 379.758,7329.713 379.221,7329.713 C378.67,7329.713 378.321,7330.062 378.321,7330.518 C378.321,7331.082 378.67,7331.31 379.476,7331.659 C381.165,7332.383 382.443,7332.952 382.443,7334.814 C382.443,7336.506 381.114,7337.432 379.328,7337.432 L379.328,7337.432 Z M375,7334.599 C375,7336.546 373.801,7337.575 372.136,7337.575 C370.632,7337.575 369.731,7337 369.288,7336 L369.273,7336 L369.266,7336 L369.262,7336 L370.791,7334.931 C371.086,7335.454 371.352,7335.825 371.996,7335.825 C372.614,7335.825 373,7335.512 373,7334.573 L373,7328 L375,7328 L375,7334.599 Z M364,7339 L384,7339 L384,7319 L364,7319 L364,7339 Z" id="javascript-[#155]">
-
-</path>
-            </g>
-        </g>
-    </g>
-</svg> JavaScript
-            </span>
-          </div>
-          <div class="flex gap-2 mt-1">
-            <a href="https://leostamales.com" target="_blank" class="btn-surface h-8 rounded-full flex items-center justify-center px-4 gap-2 text-sm font-semibold transition">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> Visitar sitio
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="w-full sm:w-96 shrink-0">
-        <!-- leostamales gallery -->
-        <div class="pswp-gallery" id="gallery-leostamales">
-          <a href="assets/screenshots/leostamales-1.webp"
-             data-pswp-width="1280" data-pswp-height="800"
-             target="_blank">
-            <img src="assets/screenshots/leostamales-1.webp" alt="leostamales.com - hero" width="1280" height="800" loading="lazy">
-          </a>
-          <span class="pswp-count">1 / 3</span>
-          <a href="assets/screenshots/leostamales-2.webp"
-             data-pswp-width="1280" data-pswp-height="800"
-             class="pswp-hidden" target="_blank">
-            <img src="assets/screenshots/leostamales-2.webp" alt="leostamales.com - menu" width="1280" height="800" loading="lazy">
-          </a>
-          <a href="assets/screenshots/leostamales-3.webp"
-             data-pswp-width="1280" data-pswp-height="800"
-             class="pswp-hidden" target="_blank">
-            <img src="assets/screenshots/leostamales-3.webp" alt="leostamales.com - contacto" width="1280" height="800" loading="lazy">
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <hr class="border-dynamic">
-
-  <!-- Formación -->
-<div class="flex flex-col gap-4 my-6">
-  <h2 class="text-3xl md:text-4xl font-bold text-dynamic-primary mb-7 mb-4 md:mb-6">Formación Académica</h2>
-
-  <div class="flex flex-col items-center sm:flex-row justify-between items-start gap-4">
-    <div class="flex gap-4 items-start">
-      <span class="icon-box w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-      </span>
-      <div>
-        <strong class="text-dynamic-primary block">Ingeniería en Sistemas Computacionales</strong>
-        <p>Universidad Politécnica de Honduras</p>
-        <p id="academic-detail-text" class="text-dynamic-muted text-sm">Avance actual: cargando...</p>
-        <a href="plan-de-estudios.html" class="btn-surface inline-flex items-center justify-center mt-3 rounded-full px-4 py-2 text-sm font-semibold transition">
-          Ver plan de estudios
-        </a>
-      </div>
-    </div>
-
-    <div class="flex flex-col items-center gap-3 shrink-0">
-      <div class="relative w-24 h-24" id="progress-ring-wrapper">
-        <svg width="96" height="96" viewBox="0 0 96 96" class="-rotate-90">
-          <circle cx="48" cy="48" r="42" fill="none" stroke-width="8"
-                  class="stroke-slate-300 dark:stroke-slate-700"></circle>
-          <circle id="progress-ring-fill" cx="48" cy="48" r="42" fill="none" stroke-width="8"
-                  stroke-linecap="round" stroke="currentColor"
-                  class="text-emerald-400"
-                  style="stroke-dasharray: 263.89; stroke-dashoffset: 263.89; transition: stroke-dashoffset 1.4s cubic-bezier(.65,0,.35,1);"></circle>
-        </svg>
-        <div class="absolute inset-0 flex items-center justify-center">
-          <span id="progress-percent" class="text-lg font-bold text-dynamic-primary">0%</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <hr class="border-dynamic">
-
-  <!-- Filosofía -->
-  <div class="flex flex-col gap-2 my-6">
-    <h2 class="text-3xl md:text-4xl font-bold text-dynamic-primary mb-7 mb-4 md:mb-6">Mi filosofía</h2>
-    <p class="text-dynamic-para leading-relaxed">
-      Como desarrollador, me esfuerzo por entender bien cómo funcionan las cosas antes de usarlas, ya sea construyendo un sistema operativo desde cero o depurando un script de Python. Creo que la mejor forma de aprender es construyendo, equivocándome y volviendo a intentarlo, manteniéndome en constante aprendizaje.
-    </p>
-  </div>
-
-  <!-- Por qué elegirme -->
-  <div class="flex flex-col gap-2 my-10">
-    <h2 class="text-3xl md:text-4xl font-bold text-dynamic-primary mb-7 mb-4 md:mb-6 my-6">¿Por qué elegirme?</h2>
-    <p class="text-dynamic-para leading-relaxed">
-      Si estás buscando a alguien comprometido, con capacidad de aprendizaje rápido y que disfruta resolver problemas técnicos desde la raíz, creo que puedo ser una buena opción para tu equipo. Aunque soy un desarrollador junior, tengo una gran motivación por seguir creciendo en el mundo del desarrollo de software y los sistemas de bajo nivel.
-    </p>
-  </div>
-
-  <hr class="border-dynamic">
-
-  <!-- Footer -->
-  <div class="flex flex-col gap-2">
-    <p class="text-dynamic-muted text-sm">Emmanuel Mejía Castillo</p>
-    <div class="flex flex-wrap items-center gap-2">
-      <a href="mailto:emmanuelm.castillo@outlook.com" class="btn-solid text-sm font-medium px-4 py-2 rounded-full flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-        emmanuelm.castillo@outlook.com
-      </a>
-      <div class="flex items-center gap-2">
-        <a href="https://github.com/itomejiacastillo" target="_blank" class="btn-surface w-9 h-9 rounded-full flex items-center justify-center" aria-label="GitHub">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-        </a>
-        <a href="https://wa.me/+50498785749" target="_blank" class="btn-surface w-9 h-9 rounded-full flex items-center justify-center" aria-label="WhatsApp">
-          <svg fill="currentColor" width="16" height="16" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M26.576 5.363c-2.69-2.69-6.406-4.354-10.511-4.354-8.209 0-14.865 6.655-14.865 14.865 0 2.732 0.737 5.291 2.022 7.491l-0.038-0.070-2.109 7.702 7.879-2.067c2.051 1.139 4.498 1.809 7.102 1.809h0.006c8.209-0.003 14.862-6.659 14.862-14.868 0-4.103-1.662-7.817-4.349-10.507l0 0zM16.062 28.228h-0.005c-0 0-0.001 0-0.001 0-2.319 0-4.489-0.64-6.342-1.753l0.056 0.031-0.451-0.267-4.675 1.227 1.247-4.559-0.294-0.467c-1.185-1.862-1.889-4.131-1.889-6.565 0-6.822 5.531-12.353 12.353-12.353s12.353 5.531 12.353 12.353c0 6.822-5.53 12.353-12.353 12.353h-0zM22.838 18.977c-0.371-0.186-2.197-1.083-2.537-1.208-0.341-0.124-0.589-0.185-0.837 0.187-0.246 0.371-0.958 1.207-1.175 1.455-0.216 0.249-0.434 0.279-0.805 0.094-1.15-0.466-2.138-1.087-2.997-1.852l0.010 0.009c-0.799-0.74-1.484-1.587-2.037-2.521l-0.028-0.052c-0.216-0.371-0.023-0.572 0.162-0.757 0.167-0.166 0.372-0.434 0.557-0.65 0.146-0.179 0.271-0.384 0.366-0.604l0.006-0.017c0.043-0.087 0.068-0.188 0.068-0.296 0-0.131-0.037-0.253-0.101-0.357l0.002 0.003c-0.094-0.186-0.836-2.014-1.145-2.758-0.302-0.724-0.609-0.625-0.836-0.637-0.216-0.010-0.464-0.012-0.712-0.012-0.395 0.010-0.746 0.188-0.988 0.463l-0.001 0.002c-0.802 0.761-1.3 1.834-1.3 3.023 0 0.026 0 0.053 0.001 0.079l-0-0.004c0.131 1.467 0.681 2.784 1.527 3.857l-0.012-0.015c1.604 2.379 3.742 4.282 6.251 5.564l0.094 0.043c0.548 0.248 1.25 0.513 1.968 0.74l0.149 0.041c0.442 0.14 0.951 0.221 1.479 0.221 0.303 0 0.601-0.027 0.889-0.078l-0.031 0.004c1.069-0.223 1.956-0.868 2.497-1.749l0.009-0.017c0.165-0.366 0.261-0.793 0.261-1.242 0-0.185-0.016-0.366-0.047-0.542l0.003 0.019c-0.092-0.155-0.34-0.247-0.712-0.434z"></path>
+          <svg data-menu-icon="close" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
           </svg>
-        </a>
-        <a href="tel:+50498785749" target="_blank" class="btn-surface w-9 h-9 rounded-full flex items-center justify-center" aria-label="Teléfono">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3.09 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72 12.52 12.52 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L9.91 10.09a16 16 0 0 0 6 6l1.35-1.35a2 2 0 0 1 2.11-.45 12.52 12.52 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-        </a>
+        </button>
       </div>
     </div>
-  </div>
 
-</div>
+    <nav id="mobile-nav" class="mobile-nav hidden" aria-label="Menú móvil">
+      <div class="container mobile-nav-list">
+        <a href="#Proyectos" class="mobile-nav-link">Proyectos</a>
+        <a href="#Habilidades" class="mobile-nav-link">Stack</a>
+        <a href="#Formacion" class="mobile-nav-link">Formación</a>
+        <a href="#Contacto" class="mobile-nav-link">Contacto</a>
+        <a href="plan-de-estudios.html" class="mobile-nav-link">Plan de estudios</a>
+      </div>
+    </nav>
+  </header>
 
-<!-- Theme Toggle Button -->
-<div class="fixed bottom-6 right-6 z-50">
-  <button id="theme-toggle" class="btn-surface w-12 h-12 rounded-full flex items-center justify-center shadow-2xl cursor-pointer hover:scale-105 active:scale-95 transition-transform" aria-label="Cambiar tema">
-    <!-- Sun Icon (shown in dark mode) -->
-    <svg id="theme-toggle-light-icon" class="hidden w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <main>
+    <!-- 2) Hero -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div>
+          <span class="mono-label">Desarrollador Jr. · Danlí, Honduras</span>
+          <h1 class="hero-title">Software que sirve, <em class="accent-italic">y funciona.</em></h1>
+          <p class="hero-copy">
+            Soy estudiante de Ingeniería en Sistemas Computacionales. Construyo herramientas que resuelven problemas reales: desde etiquetas QR generadas desde Excel hasta la trazabilidad de una planta tabacalera.
+          </p>
+          <div class="hero-actions">
+            <a href="#Proyectos" class="btn btn-primary">Ver proyectos</a>
+            <a href="mailto:emmanuelm.castillo@outlook.com" class="btn btn-secondary">Escribirme</a>
+          </div>
+        </div>
+
+        <div class="hero-label-wrap">
+          <div class="offline-pill">
+            <span class="offline-dot" aria-hidden="true"></span>
+            <span>Offline-first</span>
+          </div>
+
+          <div class="qr-label-card" role="region" aria-label="Muestra de etiqueta QR de producción">
+            <div class="qr-code-box">
+              <svg class="qr-code-svg" viewBox="0 0 21 21" shape-rendering="crispEdges" fill="currentColor" aria-hidden="true">
+                <!-- Esquinas QR -->
+                <path fill-rule="evenodd" d="M0 0h7v7H0V0zm1 1v5h5V1H1zm1 1h3v3H2V2zM14 0h7v7h-7V0zm1 1v5h5V1h-5zm1 1h3v3h-3V2zM0 14h7v7H0v-7zm1 1v5h5v-5H1zm1 1h3v3H2v-3z"/>
+                <!-- Módulos de datos geométricos -->
+                <rect x="8" y="1" width="1" height="1"/>
+                <rect x="10" y="1" width="2" height="1"/>
+                <rect x="9" y="3" width="1" height="2"/>
+                <rect x="11" y="3" width="2" height="1"/>
+                <rect x="8" y="5" width="2" height="1"/>
+                <rect x="11" y="5" width="1" height="2"/>
+                <rect x="1" y="8" width="2" height="1"/>
+                <rect x="4" y="8" width="1" height="2"/>
+                <rect x="6" y="8" width="2" height="1"/>
+                <rect x="9" y="8" width="3" height="1"/>
+                <rect x="13" y="8" width="2" height="1"/>
+                <rect x="17" y="8" width="3" height="1"/>
+                <rect x="0" y="10" width="1" height="2"/>
+                <rect x="2" y="10" width="2" height="1"/>
+                <rect x="5" y="10" width="2" height="2"/>
+                <rect x="8" y="10" width="2" height="2"/>
+                <rect x="11" y="10" width="2" height="1"/>
+                <rect x="14" y="10" width="2" height="2"/>
+                <rect x="18" y="10" width="2" height="1"/>
+                <rect x="1" y="12" width="3" height="1"/>
+                <rect x="6" y="12" width="1" height="1"/>
+                <rect x="10" y="12" width="3" height="1"/>
+                <rect x="16" y="12" width="2" height="2"/>
+                <rect x="19" y="12" width="2" height="1"/>
+                <rect x="8" y="14" width="2" height="2"/>
+                <rect x="11" y="14" width="1" height="3"/>
+                <rect x="13" y="14" width="3" height="1"/>
+                <rect x="17" y="14" width="1" height="2"/>
+                <rect x="19" y="14" width="2" height="2"/>
+                <rect x="9" y="17" width="1" height="2"/>
+                <rect x="13" y="16" width="2" height="2"/>
+                <rect x="16" y="17" width="2" height="1"/>
+                <rect x="8" y="19" width="2" height="2"/>
+                <rect x="11" y="19" width="3" height="2"/>
+                <rect x="15" y="19" width="2" height="2"/>
+                <rect x="18" y="18" width="3" height="3"/>
+              </svg>
+            </div>
+
+            <dl class="qr-meta-list">
+              <div class="qr-meta-row">
+                <dt>PRODUCTO</dt>
+                <dd>Tabaco en hoja</dd>
+              </div>
+              <div class="qr-meta-row">
+                <dt>CLAVE</dt>
+                <dd>Etiqueta QR</dd>
+              </div>
+              <div class="qr-meta-row">
+                <dt>ESTADO</dt>
+                <dd>Listo para escanear</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) Franja MI STACK -->
+    <section id="Habilidades" class="stack-band" aria-labelledby="stack-heading">
+      <div class="container stack-inner">
+        <span id="stack-heading" class="mono-label stack-heading">MI STACK</span>
+        <div class="stack-pills">
+          <span class="stack-pill">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+              <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
+            </svg>
+            <span>HTML</span>
+          </span>
+          <span class="stack-pill">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+              <path d="M0 0v20.16A3.84 3.84 0 0 0 3.84 24h16.32A3.84 3.84 0 0 0 24 20.16V3.84A3.84 3.84 0 0 0 20.16 0Zm14.256 13.08c1.56 0 2.28 1.08 2.304 2.64h-1.608c.024-.288-.048-.6-.144-.84-.096-.192-.288-.264-.552-.264-.456 0-.696.264-.696.84-.024.576.288.888.768 1.08.72.288 1.608.744 1.92 1.296q.432.648.432 1.656c0 1.608-.912 2.592-2.496 2.592-1.656 0-2.4-1.032-2.424-2.688h1.68c0 .792.264 1.176.792 1.176.264 0 .456-.072.552-.24.192-.312.24-1.176-.048-1.512-.312-.408-.912-.6-1.32-.816q-.828-.396-1.224-.936c-.24-.36-.36-.888-.36-1.536 0-1.44.936-2.472 2.424-2.448m5.4 0c1.584 0 2.304 1.08 2.328 2.64h-1.608c0-.288-.048-.6-.168-.84-.096-.192-.264-.264-.528-.264-.48 0-.72.264-.72.84s.288.888.792 1.08c.696.288 1.608.744 1.92 1.296.264.432.408.984.408 1.656.024 1.608-.888 2.592-2.472 2.592-1.68 0-2.424-1.056-2.448-2.688h1.68c0 .744.264 1.176.792 1.176.264 0 .456-.072.552-.24.216-.312.264-1.176-.048-1.512-.288-.408-.888-.6-1.32-.816-.552-.264-.96-.576-1.2-.936s-.36-.888-.36-1.536c-.024-1.44.912-2.472 2.4-2.448m-11.031.018c.711-.006 1.419.198 1.839.63.432.432.672 1.128.648 1.992H9.336c.024-.456-.096-.792-.432-.96-.312-.144-.768-.048-.888.24-.12.264-.192.576-.168.864v3.504c0 .744.264 1.128.768 1.128a.65.65 0 0 0 .552-.264c.168-.24.192-.552.168-.84h1.776c.096 1.632-.984 2.712-2.568 2.688-1.536 0-2.496-.864-2.472-2.472v-4.032c0-.816.24-1.44.696-1.848.432-.408 1.146-.624 1.857-.63"/>
+            </svg>
+            <span>CSS</span>
+          </span>
+          <span class="stack-pill">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+              <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+            </svg>
+            <span>JavaScript</span>
+          </span>
+          <span class="stack-pill">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+              <path d="M24 8.77h-2.468v7.565h-1.425V8.77h-2.462V7.53H24zm-6.852 7.565h-4.821V7.53h4.63v1.24h-3.205v2.494h2.953v1.234h-2.953v2.604h3.396zm-6.708 0H8.882L4.78 9.863a2.896 2.896 0 0 1-.258-.51h-.036c.032.189.048.592.048 1.21v5.772H3.157V7.53h1.659l3.965 6.32c.167.261.275.442.323.54h.024c-.04-.233-.06-.629-.06-1.185V7.529h1.372zm-8.703-.693a.868.829 0 0 1-.869.829.868.829 0 0 1-.868-.83.868.829 0 0 1 .868-.828.868.829 0 0 1 .869.829Z"/>
+            </svg>
+            <span>VB.NET</span>
+          </span>
+          <span class="stack-pill">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+              <path d="M4.105 4.105S9.158 1.58 11.684.316a3.079 3.079 0 0 1 1.481-.315c.766.047 1.677.788 1.677.788L24 9.948v9.789h-4.263V24H9.789l-9-9C.303 14.5 0 13.795 0 13.105c0-.319.18-.818.316-1.105l3.789-7.895zm.679.679v11.787c.002.543.021 1.024.498 1.508L10.204 23h8.533v-4.263L4.784 4.784zm12.055-.678c-.899-.896-1.809-1.78-2.74-2.643-.302-.267-.567-.468-1.07-.462-.37.014-.87.195-.87.195L6.341 4.105l10.498.001z"/>
+            </svg>
+            <span>Dart</span>
+          </span>
+          <span class="stack-pill">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+              <path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/>
+            </svg>
+            <span>Flutter</span>
+          </span>
+          <span class="stack-pill">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+              <path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/>
+            </svg>
+            <span>Supabase</span>
+          </span>
+          <span class="stack-pill">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+              <path d="M13.09 23.549a1.54 1.54 0 0 1-2.18 0L.451 13.089a1.54 1.54 0 0 1 0-2.179l7.191-7.19 2.733 2.733a1.85 1.85 0 0 0 .964 2.326v6.66a1.849 1.849 0 1 0 1.54 0V8.957l2.508 2.508a1.85 1.85 0 1 0 1.09-1.09l-2.634-2.634a1.85 1.85 0 0 0-2.378-2.377L8.73 2.63 10.91.451a1.54 1.54 0 0 1 2.179 0l10.459 10.46a1.54 1.54 0 0 1 0 2.179z"/>
+            </svg>
+            <span>Git y GitHub</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) Proyectos Reales -->
+    <section id="Proyectos" class="section" aria-labelledby="projects-heading" data-reveal>
+      <div class="container">
+        <span class="mono-label">PROYECTOS REALES</span>
+        <h2 id="projects-heading" class="section-title">Cuatro cosas que construí y que funcionan.</h2>
+        <p class="section-subtitle">
+          Proyectos reales que dan solución a problemas reales. Estos son los que considero más relevantes hoy.
+        </p>
+
+        <div class="projects-bento">
+          <!-- TrazabilidApp (7 cols) -->
+          <article class="project-card project-card--linked bento-wide">
+            <div class="project-stage">
+              <div class="offline-pill stage-badge">
+                <span class="offline-dot" aria-hidden="true"></span>
+                <span>Offline-first</span>
+              </div>
+              <div class="frame-phone frame-tablet">
+                <div class="frame-tablet-camera" aria-hidden="true"></div>
+                <div class="pswp-gallery" id="gallery-trazabilid">
+                  <a href="assets/screenshots/trazabilidapp/modulo produccion modo oscuro.webp"
+                     data-pswp-width="1600" data-pswp-height="2560"
+                     target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/trazabilidapp/modulo produccion modo oscuro.webp" alt="TrazabilidApp en tablet mostrando el módulo de producción en modo oscuro" width="1600" height="2560" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/trazabilidapp/modulo empaque modo oscuro.webp"
+                     data-pswp-width="1600" data-pswp-height="2560"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/trazabilidapp/modulo empaque modo oscuro.webp" alt="TrazabilidApp en tablet mostrando el módulo de empaque en modo oscuro" width="1600" height="2560" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/trazabilidapp/login modo oscuro.webp"
+                     data-pswp-width="1600" data-pswp-height="2560"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/trazabilidapp/login modo oscuro.webp" alt="TrazabilidApp en tablet mostrando la pantalla de inicio de sesión en modo oscuro" width="1600" height="2560" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/trazabilidapp/modulo produccion modo claro.webp"
+                     data-pswp-width="1600" data-pswp-height="2560"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/trazabilidapp/modulo produccion modo claro.webp" alt="TrazabilidApp en tablet mostrando el módulo de producción en modo claro" width="1600" height="2560" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/trazabilidapp/modulo empaque modo claro.webp"
+                     data-pswp-width="1600" data-pswp-height="2560"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/trazabilidapp/modulo empaque modo claro.webp" alt="TrazabilidApp en tablet mostrando el módulo de empaque en modo claro" width="1600" height="2560" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/trazabilidapp/login modo claro.webp"
+                     data-pswp-width="1600" data-pswp-height="2560"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/trazabilidapp/login modo claro.webp" alt="TrazabilidApp en tablet mostrando la pantalla de inicio de sesión en modo claro" width="1600" height="2560" loading="lazy">
+                  </a>
+                </div>
+              </div>
+              <div class="carousel-controls" data-gallery="#gallery-trazabilid">
+                <button type="button" class="carousel-btn" data-carousel="prev" aria-label="Captura anterior de TrazabilidApp">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <span class="carousel-count">1 / 6</span>
+                <button type="button" class="carousel-btn" data-carousel="next" aria-label="Siguiente captura de TrazabilidApp">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <span class="mono-label">Industria tabacalera · Android</span>
+              <h3 class="project-title">TrazabilidApp</h3>
+              <p class="project-desc">
+                Genera etiquetas con códigos QR para gestionar la trazabilidad de la producción en una empresa tabacalera. Es multiusuario y offline-first: se usa sin conexión a internet, con alta disponibilidad.
+              </p>
+              <div class="project-tags">
+                <span class="tech-pill">Dart</span>
+                <span class="tech-pill">Flutter</span>
+                <span class="tech-pill">SQLite</span>
+                <span class="tech-pill">Supabase</span>
+                <span class="tech-pill">Zebra ZPL</span>
+              </div>
+              <div class="project-links">
+                <a href="trazabilidapp.html" class="project-link">Ver arquitectura y detalle ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Administrador de Clases (5 cols) -->
+          <article class="project-card project-card--linked bento-narrow">
+            <div class="project-stage">
+              <div class="frame-browser">
+                <div class="frame-chrome">
+                  <div class="frame-dots" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <span class="frame-url">itomejiacastillo.com/plan-de-estudios</span>
+                </div>
+                <div class="pswp-gallery" id="gallery-admin-clases">
+                  <a href="assets/screenshots/admin-clases-1.webp?v=3"
+                     data-pswp-width="1010" data-pswp-height="632"
+                     target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/admin-clases-1.webp?v=3" alt="Administrador de Clases mostrando el resumen académico y periodos" width="1010" height="632" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/admin-clases-2.webp?v=3"
+                     data-pswp-width="1010" data-pswp-height="632"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/admin-clases-2.webp?v=3" alt="Administrador de Clases mostrando inicio de sesión con Supabase Auth" width="1010" height="632" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/admin-clases-3.webp?v=3"
+                     data-pswp-width="1010" data-pswp-height="632"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/admin-clases-3.webp?v=3" alt="Administrador de Clases mostrando el modal de calificación de asignatura" width="1010" height="632" loading="lazy">
+                  </a>
+                </div>
+              </div>
+              <div class="carousel-controls" data-gallery="#gallery-admin-clases">
+                <button type="button" class="carousel-btn" data-carousel="prev" aria-label="Captura anterior de Administrador de Clases">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <span class="carousel-count">1 / 3</span>
+                <button type="button" class="carousel-btn" data-carousel="next" aria-label="Siguiente captura de Administrador de Clases">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <span class="mono-label">Web app · Seguimiento académico</span>
+              <h3 class="project-title">Administrador de Clases</h3>
+              <p class="project-desc">
+                Visualizo y doy seguimiento a mi plan de estudios universitario. Resolví retos de permisos RLS en Postgres y autenticación segura con Supabase Auth.
+              </p>
+              <div class="project-tags">
+                <span class="tech-pill">Supabase</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">Tailwind CSS</span>
+              </div>
+              <div class="project-links">
+                <a href="plan-de-estudios.html" class="project-link">Visitar sitio ↗</a>
+                <a href="https://github.com/itomejiacastillo/portafolio-tailwind" target="_blank" rel="noopener noreferrer" class="project-link">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- QR Label Generator (5 cols) -->
+          <article class="project-card project-card--linked bento-narrow">
+            <div class="project-stage">
+              <div class="frame-desktop">
+                <div class="frame-chrome">
+                  <span class="frame-url">QR Label Generator</span>
+                  <div class="frame-window-controls" aria-hidden="true">
+                    <span>—</span><span>□</span><span>×</span>
+                  </div>
+                </div>
+                <div class="pswp-gallery" id="gallery-qrgen">
+                  <a href="assets/screenshots/qrgen-1.webp"
+                     data-pswp-width="815" data-pswp-height="889"
+                     target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/qrgen-1.webp" alt="QR Label Generator mostrando vista previa de etiqueta QR en Windows Forms" width="815" height="889" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/qrgen-2.webp"
+                     data-pswp-width="814" data-pswp-height="889"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/qrgen-2.webp" alt="QR Label Generator mostrando importación de columnas desde archivo Excel" width="814" height="889" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/qrgen-3.webp"
+                     data-pswp-width="1900" data-pswp-height="942"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/qrgen-3.webp" alt="QR Label Generator mostrando exportación de etiquetas a PDF personalizado" width="1900" height="942" loading="lazy">
+                  </a>
+                </div>
+              </div>
+              <div class="carousel-controls" data-gallery="#gallery-qrgen">
+                <button type="button" class="carousel-btn" data-carousel="prev" aria-label="Captura anterior de QR Label Generator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <span class="carousel-count">1 / 3</span>
+                <button type="button" class="carousel-btn" data-carousel="next" aria-label="Siguiente captura de QR Label Generator">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <span class="mono-label">Escritorio · VB.NET / Windows Forms</span>
+              <h3 class="project-title">QR Label Generator</h3>
+              <p class="project-desc">
+                Genera etiquetas con códigos QR a partir de archivos Excel, con selección configurable de columna y separador para el QR, y exportación a PDF con tamaño de página personalizado.
+              </p>
+              <div class="project-tags">
+                <span class="tech-pill">VB.NET</span>
+                <span class="tech-pill">Windows Forms</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/itomejiacastillo/exceltoqr" target="_blank" rel="noopener noreferrer" class="project-link">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- leostamales.com (7 cols) -->
+          <article class="project-card project-card--linked bento-wide">
+            <div class="project-stage">
+              <div class="frame-browser">
+                <div class="frame-chrome">
+                  <div class="frame-dots" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <span class="frame-url">leostamales.com</span>
+                </div>
+                <div class="pswp-gallery" id="gallery-leostamales">
+                  <a href="assets/screenshots/leostamales-1.webp?v=3"
+                     data-pswp-width="1000" data-pswp-height="650"
+                     target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/leostamales-1.webp?v=3" alt="leostamales.com mostrando la sección principal renovada y botón flotante del carrito" width="1000" height="650" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/leostamales-2.webp?v=3"
+                     data-pswp-width="1000" data-pswp-height="650"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/leostamales-2.webp?v=3" alt="leostamales.com mostrando el menú de tamales con selectores de cantidad para el carrito" width="1000" height="650" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/leostamales-3.webp?v=3"
+                     data-pswp-width="1000" data-pswp-height="680"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/leostamales-3.webp?v=3" alt="leostamales.com mostrando el modal del carrito de compras persistido en localStorage" width="1000" height="680" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/leostamales-4.webp?v=3"
+                     data-pswp-width="1000" data-pswp-height="650"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/leostamales-4.webp?v=3" alt="leostamales.com mostrando el formulario de entrega y envío de pedido por correo y WhatsApp" width="1000" height="650" loading="lazy">
+                  </a>
+                </div>
+              </div>
+              <div class="carousel-controls" data-gallery="#gallery-leostamales">
+                <button type="button" class="carousel-btn" data-carousel="prev" aria-label="Captura anterior de leostamales.com">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <span class="carousel-count">1 / 4</span>
+                <button type="button" class="carousel-btn" data-carousel="next" aria-label="Siguiente captura de leostamales.com">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <span class="mono-label">Landing page · Negocio local</span>
+              <h3 class="project-title">leostamales.com</h3>
+              <p class="project-desc">
+                Landing page que diseñé y desarrollé para promocionar el negocio Leo's Tamales en Los Ángeles, California. Enfocada en presentación de producto, información de contacto y llamado a la acción.
+              </p>
+              <div class="project-tags">
+                <span class="tech-pill">HTML</span>
+                <span class="tech-pill">CSS</span>
+                <span class="tech-pill">JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="https://leostamales.com" target="_blank" rel="noopener noreferrer" class="project-link">Visitar sitio ↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) Formación Académica -->
+    <section id="Formacion" class="section" aria-labelledby="education-heading" data-reveal>
+      <div class="container">
+        <span class="mono-label">FORMACIÓN ACADÉMICA</span>
+
+        <div id="education-card" class="education-card is-loading">
+          <div class="education-top">
+            <div class="progress-ring is-loading" id="progress-ring-wrapper">
+              <svg class="progress-ring-svg" width="140" height="140" viewBox="0 0 140 140" aria-hidden="true">
+                <circle class="progress-ring-track" cx="70" cy="70" r="58"></circle>
+                <circle
+                  id="progress-ring-fill"
+                  class="progress-ring-fill"
+                  cx="70"
+                  cy="70"
+                  r="58"
+                  stroke-dasharray="364.42"
+                  stroke-dashoffset="364.42"
+                ></circle>
+              </svg>
+              <div class="progress-ring-value">
+                <span id="progress-percent">—</span>
+              </div>
+            </div>
+
+            <div class="education-info">
+              <h3 id="education-heading" class="education-degree">Ingeniería en Sistemas Computacionales</h3>
+              <p id="academic-detail-text" class="education-detail">
+                Universidad Politécnica de Honduras · Cargando avance académico...
+              </p>
+            </div>
+
+            <div class="education-action">
+              <a href="plan-de-estudios.html" class="btn btn-secondary">Ver plan de estudios</a>
+            </div>
+          </div>
+
+          <div
+            id="progress-cells"
+            class="progress-cells-grid is-loading"
+            role="img"
+            aria-label="Cargando detalle de asignaturas"
+          >
+            <span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span>
+            <span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span>
+            <span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span>
+            <span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span>
+            <span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span>
+            <span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span><span class="progress-cell"></span>
+            <span class="progress-cell"></span>
+          </div>
+
+          <div class="progress-bar-meta">
+            <span id="progress-approved-label">— aprobadas</span>
+            <span id="progress-remaining-label">— por cursar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) Mi Filosofía -->
+    <section id="SobreMi" class="section" aria-labelledby="philosophy-heading" data-reveal>
+      <div class="container">
+        <span class="mono-label">MI FILOSOFÍA</span>
+        <blockquote id="philosophy-heading" class="philosophy-quote">
+          Entender bien cómo funcionan las cosas <em class="accent-italic">antes de usarlas.</em>
+        </blockquote>
+        <p class="philosophy-body">
+          Ya sea construyendo un sistema operativo desde cero o depurando un script de Python. Creo que la mejor forma de aprender es construyendo, equivocándome y volviendo a intentarlo, manteniéndome en constante aprendizaje.
+        </p>
+      </div>
+    </section>
+
+    <!-- 7) ¿Por qué elegirme? -->
+    <section id="Contacto" class="section" aria-labelledby="contact-heading" data-reveal>
+      <div class="container">
+        <span class="mono-label">¿POR QUÉ ELEGIRME?</span>
+        <h2 id="contact-heading" class="contact-title">Hablemos<span class="accent-dot">.</span></h2>
+        <p class="contact-body">
+          Si buscas a alguien comprometido, con capacidad de aprendizaje rápido y que disfruta resolver problemas técnicos desde la raíz, creo que puedo ser una buena opción para tu equipo. Aunque soy un desarrollador junior, tengo una gran motivación por seguir creciendo en el desarrollo de software y los sistemas de bajo nivel.
+        </p>
+
+        <div class="contact-actions">
+          <a href="mailto:emmanuelm.castillo@outlook.com" class="btn btn-primary">emmanuelm.castillo@outlook.com</a>
+          <a href="https://github.com/itomejiacastillo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
+          <a href="https://wa.me/+50498785749" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">WhatsApp</a>
+          <a href="tel:+50498785749" class="btn btn-secondary">Llamar</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8) Pie -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="mono-label">© Emmanuel Mejía Castillo</span>
+      <span class="mono-label">DERECHOS RESERVADOS - AÑO 2026</span>
+    </div>
+  </footer>
+
+  <!-- Botón de tema claro / oscuro -->
+  <button id="theme-toggle" type="button" class="theme-toggle-btn" aria-label="Cambiar tema">
+    <svg id="theme-toggle-light-icon" class="hidden theme-toggle-icon theme-toggle-icon--sun" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
       <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
     </svg>
-    <!-- Moon Icon (shown in light mode) -->
-    <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg id="theme-toggle-dark-icon" class="hidden theme-toggle-icon" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
       <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
     </svg>
   </button>
-</div>
 
-<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script defer src="main.js"></script>
-<script type="module" src="gallery.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="main.js"></script>
+  <script type="module" src="gallery.js"></script>
 </body>
 </html>

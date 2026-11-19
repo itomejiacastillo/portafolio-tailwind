@@ -77,24 +77,24 @@ function initSupabaseClient() {
 
 function showStatus(message, tone = "info") {
   const tones = {
-    info: "border-blue-200 bg-blue-50 text-blue-900",
-    error: "border-red-200 bg-red-50 text-red-900",
-    success: "border-green-200 bg-green-50 text-green-900",
+    info: "status-info",
+    error: "status-error",
+    success: "status-success",
   };
 
   elements.statusPanel.classList.remove("hidden");
-  elements.statusMessage.className = `rounded-lg border p-4 text-sm shadow ${tones[tone]}`;
+  elements.statusMessage.className = `status-banner ${tones[tone] || tones.info}`;
   elements.statusMessage.textContent = message;
 }
 
 function showAuthMessage(message, tone = "info") {
   const tones = {
-    info: "border-blue-200 bg-blue-50 text-blue-900",
-    error: "border-red-200 bg-red-50 text-red-900",
-    success: "border-green-200 bg-green-50 text-green-900",
+    info: "status-info",
+    error: "status-error",
+    success: "status-success",
   };
 
-  elements.authMessage.className = `rounded-lg border p-3 text-sm ${tones[tone]}`;
+  elements.authMessage.className = `status-banner ${tones[tone] || tones.info}`;
   elements.authMessage.textContent = message;
 }
 
@@ -106,13 +106,11 @@ function hideAuthMessage() {
 function openAuthModal() {
   hideAuthMessage();
   elements.authModal.classList.remove("hidden");
-  elements.authModal.classList.add("flex");
   document.getElementById("login-email").focus();
 }
 
 function closeAuthModal() {
   elements.authModal.classList.add("hidden");
-  elements.authModal.classList.remove("flex");
   elements.loginForm.reset();
   hideAuthMessage();
 }
@@ -224,14 +222,13 @@ function groupByPeriod(subjects) {
 
 function createSubjectRow(subject, approvedCodes) {
   const row = document.createElement("label");
-  row.className = `flex gap-2 rounded-md px-1 py-1 text-sm ${authSession ? "cursor-pointer" : ""}`;
-  row.style.color = "var(--text-primary)";
+  row.className = `subject-row ${authSession ? "subject-row--interactive" : ""}`;
 
   const fieldId = `subject-${subject.codigo_clase.replace(/[^a-zA-Z0-9_-]/g, "-")}`;
   row.htmlFor = fieldId;
 
   const checkbox = document.createElement("input");
-  checkbox.className = "mt-1 size-4 shrink-0 accent-green-600";
+  checkbox.className = "subject-checkbox";
   checkbox.type = "checkbox";
   checkbox.id = fieldId;
   checkbox.name = `subject_${subject.codigo_clase.replace(/[^a-zA-Z0-9_]/g, "_")}`;
@@ -241,7 +238,7 @@ function createSubjectRow(subject, approvedCodes) {
   if (!authSession) {
     checkbox.setAttribute("aria-readonly", "true");
     checkbox.tabIndex = -1;
-    checkbox.classList.add("pointer-events-none", "cursor-not-allowed");
+    checkbox.classList.add("pointer-events-none");
   } else {
     checkbox.removeAttribute("aria-readonly");
     checkbox.addEventListener("click", (event) => {
@@ -251,14 +248,14 @@ function createSubjectRow(subject, approvedCodes) {
   }
 
   const content = document.createElement("span");
-  content.className = "min-w-0";
+  content.className = "subject-content";
 
   const name = document.createElement("span");
-  name.className = "block leading-snug theme-text-primary";
+  name.className = "subject-name";
   name.textContent = subject.nombre_clase || "Asignatura sin nombre";
 
   const meta = document.createElement("span");
-  meta.className = "block text-xs theme-text-muted";
+  meta.className = "subject-meta";
   const units = subject.unidades_valorativas ? ` - ${subject.unidades_valorativas} UV` : "";
   meta.textContent = `${subject.codigo_clase}${units}`;
 
@@ -274,17 +271,16 @@ function toggleGradeField() {
     if (elements.editGrade.value === "0") {
       elements.editGrade.value = "";
     }
-    elements.editGradeContainer.classList.remove("opacity-50");
+    elements.editGradeContainer.classList.remove("field-group--disabled");
   } else {
     elements.editGrade.disabled = true;
     elements.editGrade.value = 0;
-    elements.editGradeContainer.classList.add("opacity-50");
+    elements.editGradeContainer.classList.add("field-group--disabled");
   }
 }
 
 function closeEditModal() {
   elements.editModal.classList.add("hidden");
-  elements.editModal.classList.remove("flex");
   elements.editForm.reset();
 }
 
@@ -301,7 +297,6 @@ async function openEditModal(subject) {
   elements.editGrade.value = "0";
 
   elements.editModal.classList.remove("hidden");
-  elements.editModal.classList.add("flex");
 
   try {
     const token = authSession?.access_token || SUPABASE_CONFIG.anonKey;
@@ -385,8 +380,15 @@ function updateSummary() {
   const checkboxes = [...document.querySelectorAll("#subjects-grid input[type='checkbox']")];
   const approved = checkboxes.filter((checkbox) => checkbox.checked).length;
   const total = checkboxes.length;
-  const percent = total > 0 ? (approved / total) * 100 : 0;
 
+  if (total === 0) {
+    elements.approved.textContent = "—";
+    elements.total.textContent = "—";
+    elements.percent.textContent = "—";
+    return;
+  }
+
+  const percent = (approved / total) * 100;
   elements.approved.textContent = String(approved).padStart(2, "0");
   elements.total.textContent = String(total).padStart(2, "0");
   elements.percent.textContent = `${percent.toFixed(2)}%`;
@@ -409,20 +411,36 @@ function renderSubjects(subjects, approvedCodes) {
 
   groupedSubjects.forEach((periodGroup) => {
     const card = document.createElement("article");
-    card.className = "theme-surface w-full h-full max-w-sm border p-4 pb-6 text-base rounded-lg shadow-lg";
+    card.className = "period-card";
+
+    const head = document.createElement("div");
+    head.className = "period-head";
 
     const title = document.createElement("h2");
-    title.className = "font-bold text-xl mb-2 theme-text-primary";
+    title.className = "period-title";
     title.textContent = periodGroup.label;
 
+    const approvedInPeriod = periodGroup.subjects.filter((s) =>
+      approvedCodes.has(s.codigo_clase)
+    ).length;
+    const count = document.createElement("span");
+    count.className = "period-count";
+    count.textContent = `${approvedInPeriod}/${periodGroup.subjects.length}`;
+
+    head.append(title, count);
+
+    const scrollWrap = document.createElement("div");
+    scrollWrap.className = "period-scroll";
+
     const list = document.createElement("div");
-    list.className = "space-y-1";
+    list.className = "period-list";
 
     periodGroup.subjects.forEach((subject) => {
       list.appendChild(createSubjectRow(subject, approvedCodes));
     });
 
-    card.append(title, list);
+    scrollWrap.appendChild(list);
+    card.append(head, scrollWrap);
     elements.grid.appendChild(card);
   });
 
@@ -441,11 +459,11 @@ function updateAuthUi() {
 
   if (authSession) {
     elements.loginButton.textContent = "Salir";
-    elements.loginButton.className = "self-start py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent font-medium text-gray-500 hover:text-gray-800 focus:outline-none dark:border-transparent dark:text-neutral-400 dark:hover:text-neutral-200";
+    elements.loginButton.className = "btn-quiet";
     showStatus("Sesion iniciada. Puedes editar las clases aprobadas desde los checks.", "success");
   } else {
     elements.loginButton.textContent = "Ingresar";
-    elements.loginButton.className = "self-start py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent font-medium text-gray-500 hover:text-gray-800 focus:outline-none dark:border-transparent dark:text-neutral-400 dark:hover:text-neutral-200";
+    elements.loginButton.className = "btn-quiet";
   }
 
   rerenderCurrentSubjects();
@@ -518,9 +536,16 @@ async function handleLoginButtonClick() {
 
 function renderLoading() {
   elements.grid.replaceChildren();
-  for (let index = 0; index < 8; index += 1) {
+  for (let index = 0; index < 6; index += 1) {
     const placeholder = document.createElement("div");
-    placeholder.className = "theme-surface w-full h-40 max-w-sm animate-pulse rounded-lg border shadow-lg";
+    placeholder.className = "period-card is-loading";
+    placeholder.innerHTML =
+      '<div class="skeleton-block" style="width: 45%; height: 22px;"></div>' +
+      '<div class="skeleton-card-stack">' +
+      '<div class="skeleton-block" style="width: 90%;"></div>' +
+      '<div class="skeleton-block" style="width: 75%;"></div>' +
+      '<div class="skeleton-block" style="width: 82%;"></div>' +
+      "</div>";
     elements.grid.appendChild(placeholder);
   }
 }
@@ -570,6 +595,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   elements.editStatus.addEventListener("change", toggleGradeField);
   elements.editForm.addEventListener("submit", handleEditSubmit);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    if (!elements.authModal.classList.contains("hidden")) closeAuthModal();
+    if (!elements.editModal.classList.contains("hidden")) closeEditModal();
+  });
 
   loadSubjects();
 });

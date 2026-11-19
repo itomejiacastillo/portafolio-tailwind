@@ -20,12 +20,12 @@ function showMessage(message, tone = "info") {
   if (!elements.statusMessage) return;
 
   const tones = {
-    info: "border-blue-200 bg-blue-50 text-blue-900",
-    success: "border-green-200 bg-green-50 text-green-900",
-    error: "border-red-200 bg-red-50 text-red-900",
+    info: "status-info",
+    success: "status-success",
+    error: "status-error",
   };
 
-  elements.statusMessage.className = `rounded-lg border p-3 text-sm ${tones[tone]}`;
+  elements.statusMessage.className = `status-banner ${tones[tone] || tones.info}`;
   elements.statusMessage.textContent = message;
   elements.statusMessage.classList.remove("hidden");
 }

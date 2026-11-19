@@ -1,0 +1,154 @@
+:root {
+  color-scheme: dark;
+
+  /* Superficies y texto (modo oscuro editorial) */
+  --bg: #0F0E0C;
+  --surface: #181612;
+  --surface-2: #211E19;
+  --stage-bg: #13110E;
+  --line: rgba(239, 232, 218, 0.10);
+  --line-strong: rgba(239, 232, 218, 0.22);
+  --text: #EFE8DA;
+  --text-2: #C9C1B0;
+  --muted: #A89F8E;
+
+  /* Acento único (cambiar aquí actualiza toda la web) */
+  --accent: #E3A34B;
+  --on-accent: #1A1308;
+
+  /* Etiqueta impresa del hero (papel crema fijo por diseño) */
+  --label-bg: #EFE8DA;
+  --label-text: #17140F;
+  --label-muted: #5E5648;
+  --label-line: rgba(23, 20, 15, 0.14);
+
+  /* Estados semánticos sobrios (contraste >= 4.5:1) */
+  --status-dot: #4CAF78;
+  --status-info-bg: #211E19;
+  --status-info-border: rgba(239, 232, 218, 0.18);
+  --status-info-text: #EFE8DA;
+  --status-success-bg: #17211B;
+  --status-success-border: rgba(122, 189, 146, 0.32);
+  --status-success-text: #CBE6D4;
+  --status-error-bg: #261716;
+  --status-error-border: rgba(219, 134, 125, 0.35);
+  --status-error-text: #F2CFCB;
+  --backdrop: rgba(10, 9, 8, 0.72);
+
+  /* Tipografías con fallbacks reales */
+  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  /* Layout y ritmo */
+  --container-max: 1200px;
+  --container-pad: 40px;
+  --section-gap: 112px;
+
+  /* Radios */
+  --radius-card: 24px;
+  --radius-label: 18px;
+  --radius-frame: 14px;
+  --radius-input: 12px;
+  --radius-pill: 999px;
+
+  /* Movimiento (criterios Emil Kowalski: <= 300ms) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --dur-fast: 160ms;
+  --dur-base: 200ms;
+  --dur-reveal: 280ms;
+}
+
+html:not(.dark) {
+  color-scheme: light;
+
+  --bg: #F6F1E7;
+  --surface: #FFFFFF;
+  --surface-2: #EFE8DA;
+  --stage-bg: #EAE2D2;
+  --line: rgba(23, 20, 15, 0.11);
+  --line-strong: rgba(23, 20, 15, 0.24);
+  --text: #17140F;
+  --text-2: #3E382E;
+  --muted: #5E5648;
+
+  /* Acento oscuro para cumplir >= 4.5:1 sobre #F6F1E7 (5.32:1) y #FFFFFF (5.99:1) */
+  --accent: #8F560E;
+  --on-accent: #FFFBF4;
+
+  --status-info-bg: #EFE8DA;
+  --status-info-border: rgba(23, 20, 15, 0.16);
+  --status-info-text: #17140F;
+  --status-success-bg: #EAF3EC;
+  --status-success-border: rgba(31, 99, 57, 0.28);
+  --status-success-text: #1A4D2E;
+  --status-error-bg: #F8EAE8;
+  --status-error-border: rgba(145, 45, 36, 0.28);
+  --status-error-text: #7A231C;
+  --backdrop: rgba(23, 20, 15, 0.48);
+}
+
+/* ==========================================================================
+   Tema específico de TrazabilidApp (tokens industriales de la app en Flutter)
+   ========================================================================== */
+
+html.theme-trazabilidapp {
+  --bg: #121417;
+  --surface: #1E2227;
+  --surface-2: #182334;
+  --stage-bg: #0E1013;
+  --line: #2B313A;
+  --line-strong: #38414E;
+  --text: #F1F5F9;
+  --text-2: #CBD5E1;
+  --muted: #A8B1BD;
+
+  --accent: #60A5FA;
+  --on-accent: #0B1528;
+
+  --status-dot: #34D399;
+  --status-info-bg: #182334;
+  --status-info-border: #253B59;
+  --status-info-text: #F1F5F9;
+  --status-success-bg: #132A22;
+  --status-success-border: rgba(52, 211, 153, 0.35);
+  --status-success-text: #A7F3D0;
+  --status-error-bg: #2C1618;
+  --status-error-border: rgba(248, 113, 113, 0.35);
+  --status-error-text: #FECACA;
+  --backdrop: rgba(10, 12, 16, 0.76);
+}
+
+html.theme-trazabilidapp:not(.dark) {
+  --bg: #F6F7F9;
+  --surface: #FFFFFF;
+  --surface-2: #E8F0FE;
+  --stage-bg: #EEF1F6;
+  --line: #E2E6EB;
+  --line-strong: #C8D1DC;
+  --text: #0F172A;
+  --text-2: #334155;
+  --muted: #64748B;
+
+  --accent: #2563EB;
+  --on-accent: #FFFFFF;
+
+  --status-dot: #10B981;
+  --status-info-bg: #E8F0FE;
+  --status-info-border: #BFDBFE;
+  --status-info-text: #0F172A;
+  --status-success-bg: #ECFDF5;
+  --status-success-border: rgba(16, 185, 129, 0.32);
+  --status-success-text: #065F46;
+  --status-error-bg: #FEF2F2;
+  --status-error-border: rgba(239, 68, 68, 0.32);
+  --status-error-text: #991B1B;
+  --backdrop: rgba(15, 23, 42, 0.48);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --container-pad: 20px;
+    --section-gap: 72px;
+  }
+}

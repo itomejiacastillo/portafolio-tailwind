@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es" class="dark theme-trazabilidapp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Caso de estudio de TrazabilidApp: app Android offline-first para la trazabilidad de producción en una planta tabacalera, con sincronización incremental e impresión Zebra.">
+  <meta name="theme-color" id="meta-theme-color" content="#121417">
+  <title>TrazabilidApp — Caso de estudio | Emmanuel Mejía Castillo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+  <script src="theme-init.js"></script>
+  <link rel="stylesheet" href="output.css">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css"></noscript>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a href="index.html" class="site-brand">Emmanuel Mejía</a>
+
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="index.html#Proyectos" class="site-nav-link" aria-current="page">Proyectos</a>
+        <a href="index.html#Habilidades" class="site-nav-link">Stack</a>
+        <a href="plan-de-estudios.html" class="site-nav-link">Formación</a>
+        <a href="index.html#Contacto" class="site-nav-link">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="cv.html" class="btn btn-secondary header-cv-btn">Descargar CV</a>
+        <button
+          id="mobile-menu-toggle"
+          type="button"
+          class="mobile-menu-btn"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <svg data-menu-icon="open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+          <svg data-menu-icon="close" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <nav id="mobile-nav" class="mobile-nav hidden" aria-label="Menú móvil">
+      <div class="container mobile-nav-list">
+        <a href="index.html" class="mobile-nav-link">Inicio</a>
+        <a href="index.html#Proyectos" class="mobile-nav-link" aria-current="page">Proyectos</a>
+        <a href="index.html#Habilidades" class="mobile-nav-link">Stack</a>
+        <a href="plan-de-estudios.html" class="mobile-nav-link">Plan de estudios</a>
+        <a href="index.html#Contacto" class="mobile-nav-link">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1) Hero del caso de estudio -->
+    <section class="case-hero">
+      <div class="container">
+        <a href="index.html#Proyectos" class="back-link">← Volver a proyectos</a>
+
+        <div class="case-hero-grid">
+          <div>
+            <div class="case-badges">
+              <div class="offline-pill">
+                <span class="offline-dot" aria-hidden="true"></span>
+                <span>En producción en planta desde abr. 2025</span>
+              </div>
+              <span class="tech-pill">Android · Tablet</span>
+            </div>
+
+            <h1 class="case-title">Trazabilid<em class="accent-italic">App</em></h1>
+            <p class="hero-copy">
+              App Android para llevar la trazabilidad de la producción en una planta tabacalera. Operadores y supervisores registran movimientos, escanean códigos QR y de barras e imprimen etiquetas desde una tablet, aunque no haya Wi-Fi. Todo se guarda primero en la tablet y se sincroniza con la nube cuando hay conexión.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#arquitectura" class="btn btn-primary">Ver cómo funciona</a>
+              <a href="#interfaz" class="btn btn-secondary">Ver la interfaz</a>
+            </div>
+          </div>
+
+          <div class="case-stage-card">
+            <div class="project-stage case-hero-stage">
+              <div class="frame-phone frame-tablet case-frame-tablet">
+                <div class="frame-tablet-camera" aria-hidden="true"></div>
+                <div class="pswp-gallery" id="gallery-trazabilid-detail">
+                  <a href="assets/screenshots/trazabilidapp/modulo produccion modo oscuro.webp"
+                     data-pswp-width="1600" data-pswp-height="2560"
+                     target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/trazabilidapp/modulo produccion modo oscuro.webp" alt="TrazabilidApp en tablet mostrando el módulo de producción en modo oscuro" width="1600" height="2560">
+                  </a>
+                  <a href="assets/screenshots/trazabilidapp/modulo empaque modo oscuro.webp"
+                     data-pswp-width="1600" data-pswp-height="2560"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/trazabilidapp/modulo empaque modo oscuro.webp" alt="TrazabilidApp en tablet mostrando el módulo de empaque en modo oscuro" width="1600" height="2560" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/trazabilidapp/login modo oscuro.webp"
+                     data-pswp-width="1600" data-pswp-height="2560"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/trazabilidapp/login modo oscuro.webp" alt="TrazabilidApp en tablet mostrando la pantalla de inicio de sesión en modo oscuro" width="1600" height="2560" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/trazabilidapp/modulo produccion modo claro.webp"
+                     data-pswp-width="1600" data-pswp-height="2560"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/trazabilidapp/modulo produccion modo claro.webp" alt="TrazabilidApp en tablet mostrando el módulo de producción en modo claro" width="1600" height="2560" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/trazabilidapp/modulo empaque modo claro.webp"
+                     data-pswp-width="1600" data-pswp-height="2560"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/trazabilidapp/modulo empaque modo claro.webp" alt="TrazabilidApp en tablet mostrando el módulo de empaque en modo claro" width="1600" height="2560" loading="lazy">
+                  </a>
+                  <a href="assets/screenshots/trazabilidapp/login modo claro.webp"
+                     data-pswp-width="1600" data-pswp-height="2560"
+                     class="pswp-hidden" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/screenshots/trazabilidapp/login modo claro.webp" alt="TrazabilidApp en tablet mostrando la pantalla de inicio de sesión en modo claro" width="1600" height="2560" loading="lazy">
+                  </a>
+                </div>
+              </div>
+              <div class="carousel-controls" data-gallery="#gallery-trazabilid-detail">
+                <button type="button" class="carousel-btn" data-carousel="prev" aria-label="Captura anterior de TrazabilidApp">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <span class="carousel-count">1 / 6</span>
+                <button type="button" class="carousel-btn" data-carousel="next" aria-label="Siguiente captura de TrazabilidApp">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="case-stage-caption">
+              <span class="mono-label">Producción, empaque e inicio de sesión, en modo oscuro y claro · Toca para ampliar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2) Cómo funciona -->
+    <section id="arquitectura" class="section" aria-labelledby="arch-heading" data-reveal>
+      <div class="container">
+        <span class="mono-label">CÓMO FUNCIONA</span>
+        <h2 id="arch-heading" class="section-title">Si se cae el Wi-Fi, la planta <em class="accent-italic">sigue trabajando.</em></h2>
+        <p class="section-subtitle">
+          En una planta la red falla y la producción no espera. Por eso la tablet no depende de internet: trabaja con su propia base de datos y sube los cambios cuando puede.
+        </p>
+
+        <div class="arch-board" role="region" aria-label="Diagrama de funcionamiento de TrazabilidApp">
+          <div class="arch-lanes">
+            <!-- Nodo 1: Tablet -->
+            <div class="arch-node arch-node--primary">
+              <div class="arch-node-head">
+                <span class="mono-label">EN LA TABLET</span>
+                <span class="tech-pill">Flutter · Dart</span>
+              </div>
+              <h3 class="arch-node-title">Tablet Android</h3>
+              <p class="arch-node-desc">
+                Registros, escaneos, consultas e impresión se resuelven aquí, sin esperar a la red.
+              </p>
+              <div class="arch-subnodes">
+                <div class="arch-subnode">
+                  <span class="mono-label">Base de datos local</span>
+                  <strong>SQLite</strong>
+                  <span>Lee y escribe al instante.</span>
+                </div>
+                <div class="arch-subnode">
+                  <span class="mono-label">Identificadores únicos</span>
+                  <strong>UUID v4</strong>
+                  <span>Cada tablet crea registros sin chocar con las demás.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Conectores y destinos -->
+            <div class="arch-branches">
+              <!-- Nodo 2: En la nube -->
+              <div class="arch-branch-card">
+                <div class="arch-connector">
+                  <span class="arch-connector-line" aria-hidden="true"></span>
+                  <span class="arch-protocol-badge">Sincronización en ambos sentidos</span>
+                  <span class="arch-connector-line" aria-hidden="true"></span>
+                </div>
+                <div class="arch-node">
+                  <div class="arch-node-head">
+                    <span class="mono-label">EN LA NUBE</span>
+                  </div>
+                  <h3 class="arch-node-title">Supabase</h3>
+                  <span class="subject-meta">PostgreSQL + Supabase Auth</span>
+                  <p class="arch-node-desc">
+                    Cada tabla se sincroniza con marcas de tiempo (Delta-Sync): solo viajan los registros nuevos o modificados desde la última vez, así se ahorran datos y espera.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Nodo 3: En la planta -->
+              <div class="arch-branch-card">
+                <div class="arch-connector">
+                  <span class="arch-connector-line" aria-hidden="true"></span>
+                  <span class="arch-protocol-badge">Bluetooth directo</span>
+                  <span class="arch-connector-line" aria-hidden="true"></span>
+                </div>
+                <div class="arch-node">
+                  <div class="arch-node-head">
+                    <span class="mono-label">EN LA PLANTA</span>
+                  </div>
+                  <h3 class="arch-node-title">Impresora Zebra y escáner</h3>
+                  <p class="arch-node-desc">
+                    La tablet se conecta por Bluetooth a la impresora y le envía las etiquetas en ZPL, el lenguaje de impresión de Zebra, sin servidores de por medio. El escaneo usa la cámara y confirma con un beep.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) Y además -->
+    <section class="section" aria-labelledby="pillars-heading" data-reveal>
+      <div class="container">
+        <span class="mono-label">Y ADEMÁS</span>
+        <h2 id="pillars-heading" class="section-title">Seguridad y reportes, también <em class="accent-italic">sin conexión.</em></h2>
+
+        <div class="stack-categories-grid">
+          <article class="pillar-card">
+            <span class="mono-label">ACCESO</span>
+            <h3 class="pillar-title">Cada operador ve lo suyo</h3>
+            <p class="pillar-desc">
+              El inicio de sesión funciona sin conexión y las contraseñas se guardan con hash bcrypt. Con el control de acceso por roles (RBAC), cada persona ve solo los módulos y acciones de su perfil y su área.
+            </p>
+          </article>
+
+          <article class="pillar-card">
+            <span class="mono-label">REPORTES</span>
+            <h3 class="pillar-title">Reportes de turno sin PC</h3>
+            <p class="pillar-desc">
+              Genera reportes en PDF para imprimir o enviar desde la tablet, y exporta o importa datos en Excel (<code>.xlsx</code>) usando el sistema de archivos de Android.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) Interfaz -->
+    <section id="interfaz" class="section" aria-labelledby="ui-heading" data-reveal>
+      <div class="container">
+        <div class="ui-header-row">
+          <div>
+            <span class="mono-label">INTERFAZ</span>
+            <h2 id="ui-heading" class="section-title">Una interfaz que se lee bien <em class="accent-italic">en planta.</em></h2>
+            <p class="section-subtitle">
+              Un sistema de diseño propio en Flutter, con colores, espaciados y componentes reutilizables. Cambia entre modo oscuro y claro para ver cómo se lee con distinta iluminación.
+            </p>
+          </div>
+
+          <div class="ui-mode-Readout" role="group" aria-label="Selector de tema de las capturas de TrazabilidApp">
+            <button type="button" class="ui-mode-btn is-active" data-ui-mode="dark" aria-pressed="true">
+              <span class="ui-mode-dot ui-mode-dot--dark" aria-hidden="true"></span>
+              <span>Modo Oscuro</span>
+            </button>
+            <button type="button" class="ui-mode-btn" data-ui-mode="light" aria-pressed="false">
+              <span class="ui-mode-dot ui-mode-dot--light" aria-hidden="true"></span>
+              <span>Modo Claro</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Comparador de 3 módulos en tablet vertical -->
+        <div class="ui-showcase-grid" id="trazabilid-ui-showcase" data-active-mode="dark">
+          <!-- Vista 1: Producción -->
+          <article class="ui-showcase-card">
+            <div class="ui-tablet-stage">
+              <div class="ui-tablet-bezel">
+                <div class="frame-tablet-camera" aria-hidden="true"></div>
+                <div class="ui-tablet-screen">
+                  <img
+                    class="ui-screen-img ui-screen-img--dark"
+                    src="assets/screenshots/trazabilidapp/modulo produccion modo oscuro.webp"
+                    alt="Módulo de producción de TrazabilidApp en modo oscuro"
+                    width="1600"
+                    height="2560"
+                    loading="lazy"
+                  >
+                  <img
+                    class="ui-screen-img ui-screen-img--light"
+                    src="assets/screenshots/trazabilidapp/modulo produccion modo claro.webp"
+                    alt="Módulo de producción de TrazabilidApp en modo claro"
+                    width="1600"
+                    height="2560"
+                    loading="lazy"
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="ui-showcase-meta">
+              <span class="mono-label">PRODUCCIÓN</span>
+              <h3 class="ui-showcase-title">Lotes y operaciones</h3>
+              <p class="ui-showcase-desc">
+                Filtros rápidos, estado de sincronización a la vista e impresión de etiquetas a un toque.
+              </p>
+            </div>
+          </article>
+
+          <!-- Vista 2: Empaque -->
+          <article class="ui-showcase-card">
+            <div class="ui-tablet-stage">
+              <div class="ui-tablet-bezel">
+                <div class="frame-tablet-camera" aria-hidden="true"></div>
+                <div class="ui-tablet-screen">
+                  <img
+                    class="ui-screen-img ui-screen-img--dark"
+                    src="assets/screenshots/trazabilidapp/modulo empaque modo oscuro.webp"
+                    alt="Módulo de empaque de TrazabilidApp en modo oscuro"
+                    width="1600"
+                    height="2560"
+                    loading="lazy"
+                  >
+                  <img
+                    class="ui-screen-img ui-screen-img--light"
+                    src="assets/screenshots/trazabilidapp/modulo empaque modo claro.webp"
+                    alt="Módulo de empaque de TrazabilidApp en modo claro"
+                    width="1600"
+                    height="2560"
+                    loading="lazy"
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="ui-showcase-meta">
+              <span class="mono-label">EMPAQUE</span>
+              <h3 class="ui-showcase-title">Escaneo y etiquetas QR</h3>
+              <p class="ui-showcase-desc">
+                Validación inmediata en la tablet, escaneo continuo de códigos y etiquetas listas para la impresora Zebra.
+              </p>
+            </div>
+          </article>
+
+          <!-- Vista 3: Acceso -->
+          <article class="ui-showcase-card">
+            <div class="ui-tablet-stage">
+              <div class="ui-tablet-bezel">
+                <div class="frame-tablet-camera" aria-hidden="true"></div>
+                <div class="ui-tablet-screen">
+                  <img
+                    class="ui-screen-img ui-screen-img--dark"
+                    src="assets/screenshots/trazabilidapp/login modo oscuro.webp"
+                    alt="Pantalla de acceso y autenticación local de TrazabilidApp en modo oscuro"
+                    width="1600"
+                    height="2560"
+                    loading="lazy"
+                  >
+                  <img
+                    class="ui-screen-img ui-screen-img--light"
+                    src="assets/screenshots/trazabilidapp/login modo claro.webp"
+                    alt="Pantalla de acceso y autenticación local de TrazabilidApp en modo claro"
+                    width="1600"
+                    height="2560"
+                    loading="lazy"
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="ui-showcase-meta">
+              <span class="mono-label">ACCESO</span>
+              <h3 class="ui-showcase-title">Inicio de sesión sin conexión</h3>
+              <p class="ui-showcase-desc">
+                Entra con su usuario aunque no haya red; los permisos dependen de su perfil.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) Stack -->
+    <section class="section" aria-labelledby="stack-detail-heading" data-reveal>
+      <div class="container">
+        <span class="mono-label">STACK</span>
+        <h2 id="stack-detail-heading" class="section-title">Con qué está <em class="accent-italic">hecha.</em></h2>
+
+        <div class="stack-categories-grid">
+          <div class="stack-category-card">
+            <h3 class="stack-category-title">Interfaz</h3>
+            <div class="project-tags">
+              <span class="tech-pill">Flutter</span>
+              <span class="tech-pill">Dart 3.7+</span>
+              <span class="tech-pill">intl</span>
+            </div>
+          </div>
+
+          <div class="stack-category-card">
+            <h3 class="stack-category-title">Datos y sincronización</h3>
+            <div class="project-tags">
+              <span class="tech-pill">sqflite (SQLite)</span>
+              <span class="tech-pill">Supabase (PostgreSQL)</span>
+              <span class="tech-pill">uuid</span>
+              <span class="tech-pill">connectivity_plus</span>
+              <span class="tech-pill">shared_preferences</span>
+            </div>
+          </div>
+
+          <div class="stack-category-card">
+            <h3 class="stack-category-title">Impresión y escaneo</h3>
+            <div class="project-tags">
+              <span class="tech-pill">zebrautil</span>
+              <span class="tech-pill">flutter_blue_plus</span>
+              <span class="tech-pill">mobile_scanner</span>
+              <span class="tech-pill">barcode_scan2</span>
+              <span class="tech-pill">flutter_beep_plus</span>
+            </div>
+          </div>
+
+          <div class="stack-category-card">
+            <h3 class="stack-category-title">Seguridad y reportes</h3>
+            <div class="project-tags">
+              <span class="tech-pill">bcrypt</span>
+              <span class="tech-pill">crypto</span>
+              <span class="tech-pill">pdf</span>
+              <span class="tech-pill">printing</span>
+              <span class="tech-pill">excel</span>
+              <span class="tech-pill">file_picker</span>
+              <span class="tech-pill">share_plus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) Cierre / Contacto -->
+    <section class="section" aria-labelledby="case-contact-heading" data-reveal>
+      <div class="container">
+        <div class="case-cta-card">
+          <div>
+            <span class="mono-label">SOBRE ESTE PROYECTO</span>
+            <h2 id="case-contact-heading" class="case-cta-title">¿Quieres saber cómo lo <em class="accent-italic">construí?</em></h2>
+            <p class="case-cta-copy">
+              Por confidencialidad no publico reglas de negocio ni datos de la fábrica. En una entrevista con gusto te explico cómo diseñé la sincronización Delta-Sync, la generación de etiquetas ZPL y la estructura del proyecto en Flutter.
+            </p>
+          </div>
+          <div class="case-cta-actions">
+            <a href="mailto:emmanuelm.castillo@outlook.com" class="btn btn-primary">Escribirme por correo</a>
+            <a href="index.html#Proyectos" class="btn btn-secondary">Ver otros proyectos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="mono-label">© Emmanuel Mejía Castillo</span>
+      <span class="mono-label">DERECHOS RESERVADOS - AÑO 2026</span>
+    </div>
+  </footer>
+
+  <!-- Botón de tema claro / oscuro -->
+  <button id="theme-toggle" type="button" class="theme-toggle-btn" aria-label="Cambiar tema">
+    <svg id="theme-toggle-light-icon" class="hidden theme-toggle-icon theme-toggle-icon--sun" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+    </svg>
+    <svg id="theme-toggle-dark-icon" class="hidden theme-toggle-icon" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+    </svg>
+  </button>
+
+  <script defer src="main.js"></script>
+  <script type="module" src="gallery.js"></script>
+</body>
+</html>
