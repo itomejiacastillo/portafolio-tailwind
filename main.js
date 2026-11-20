@@ -335,3 +335,129 @@ if (uiShowcase && uiModeButtons.length > 0) {
     });
   });
 }
+
+// --- TrazabilidApp Dashboard: Backward lineage timeline & screen preview ---
+const lineageSteps = document.querySelectorAll('.lineage-step[data-stage]');
+const traceLineageBtn = document.getElementById('trace-lineage-btn');
+const lineageDetailCode = document.getElementById('lineage-detail-code');
+const lineageDetailText = document.getElementById('lineage-detail-text');
+
+if (lineageSteps.length > 0) {
+  const stageDetails = {
+    5: {
+      code: 'ETAPA 05 · EMPAQUE ZPL',
+      text: 'Caja EMP-2026-0842 escaneada con Data Matrix · 25 puros · Etiqueta impresa vía Zebra Browser Print.'
+    },
+    4: {
+      code: 'ETAPA 04 · ENTREGA',
+      text: 'Despacho interno ENT-0419 hacia línea de empaque · 250 puros recibidos sin faltantes.'
+    },
+    3: {
+      code: 'ETAPA 03 · CALIDAD Y REZAGO',
+      text: 'Inspección de lote LOT-2026-0418 · 250 aprobados, 10 en rezago (3.8% merma por vena/tiro).'
+    },
+    2: {
+      code: 'ETAPA 02 · BODEGA Y CURADO',
+      text: 'Escaparate B-12 · 42 días de reposo controlado tras salida de galera.'
+    },
+    1: {
+      code: 'ETAPA 01 · GALERA (ORIGEN)',
+      text: 'Pareja #14 · Vitola Robusto 5×50 · Capa Habano 2000 · Lote original LOT-2026-0418.'
+    }
+  };
+
+  let traceTimer = null;
+
+  function setActiveStage(stageNumber, keepPrevious) {
+    lineageSteps.forEach(function (step) {
+      const num = Number(step.getAttribute('data-stage'));
+      const active = keepPrevious ? num >= stageNumber : num === stageNumber;
+      step.classList.toggle('is-traced', active);
+      step.setAttribute('aria-pressed', String(num === stageNumber));
+    });
+
+    const info = stageDetails[stageNumber];
+    if (info && lineageDetailCode && lineageDetailText) {
+      lineageDetailCode.textContent = info.code;
+      lineageDetailText.textContent = info.text;
+    }
+  }
+
+  lineageSteps.forEach(function (step) {
+    step.addEventListener('click', function () {
+      if (traceTimer) {
+        window.clearTimeout(traceTimer);
+        traceTimer = null;
+      }
+      const stage = Number(step.getAttribute('data-stage'));
+      setActiveStage(stage, false);
+    });
+  });
+
+  if (traceLineageBtn) {
+    traceLineageBtn.addEventListener('click', function () {
+      if (traceTimer) {
+        window.clearTimeout(traceTimer);
+        traceTimer = null;
+      }
+
+      if (reduceMotionQuery.matches) {
+        setActiveStage(1, true);
+        return;
+      }
+
+      let current = 5;
+      function stepBackward() {
+        setActiveStage(current, true);
+        if (current > 1) {
+          current -= 1;
+          traceTimer = window.setTimeout(stepBackward, 420);
+        } else {
+          traceTimer = null;
+        }
+      }
+
+      stepBackward();
+    });
+  }
+}
+
+const dashWindow = document.getElementById('dash-preview-window');
+const dashTabButtons = document.querySelectorAll('[data-dash-tab]');
+const dashPanelViews = document.querySelectorAll('[data-dash-panel]');
+const dashThemeButtons = document.querySelectorAll('[data-dash-theme]');
+
+if (dashWindow && dashTabButtons.length > 0) {
+  dashTabButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const target = btn.getAttribute('data-dash-tab');
+      if (!target) return;
+
+      dashTabButtons.forEach(function (b) {
+        const isCurrent = b === btn;
+        b.classList.toggle('is-active', isCurrent);
+        b.setAttribute('aria-selected', String(isCurrent));
+      });
+
+      dashPanelViews.forEach(function (panel) {
+        panel.classList.toggle('is-active', panel.getAttribute('data-dash-panel') === target);
+      });
+    });
+  });
+}
+
+if (dashWindow && dashThemeButtons.length > 0) {
+  dashThemeButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const mode = btn.getAttribute('data-dash-theme');
+      if (!mode) return;
+
+      dashWindow.setAttribute('data-preview-theme', mode);
+      dashThemeButtons.forEach(function (b) {
+        const isCurrent = b === btn;
+        b.classList.toggle('is-active', isCurrent);
+        b.setAttribute('aria-pressed', String(isCurrent));
+      });
+    });
+  });
+}
