@@ -98,6 +98,7 @@ button,
   letter-spacing: -0.02em;
   color: var(--text);
   margin: 16px 0 0;
+  max-width: 1000px;
 }
 
 .section-title {
@@ -216,18 +217,17 @@ button,
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: 26px;
-  line-height: 1;
+  line-height: 1.05;
   color: var(--text);
   text-decoration: none;
-  white-space: nowrap;
-  flex-shrink: 0;
+  min-width: 0;
   transition: opacity var(--dur-fast) var(--ease-out);
 }
 
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: clamp(12px, 2.4vw, 32px);
 }
 
 .site-nav-link {
@@ -308,6 +308,21 @@ button,
   color: var(--accent);
 }
 
+@media (max-width: 900px) {
+  .site-brand {
+    font-size: 22px;
+  }
+
+  .site-nav-link {
+    padding: 8px 4px;
+  }
+
+  .header-cv-btn {
+    padding: 0 16px;
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 767px) {
   .site-header-inner {
     min-height: 72px;
@@ -334,11 +349,11 @@ button,
 
 @media (max-width: 420px) {
   .site-header-inner {
-    gap: 8px;
+    gap: 10px;
   }
 
   .site-brand {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .header-actions {
@@ -408,14 +423,8 @@ button,
    ========================================================================== */
 
 .hero-section {
-  padding-top: 64px;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 56px;
-  align-items: center;
+  padding-top: 56px;
+  padding-bottom: 96px;
 }
 
 .hero-copy {
@@ -423,7 +432,7 @@ button,
   line-height: 1.6;
   color: var(--text-2);
   margin: 24px 0 0;
-  max-width: 50ch;
+  max-width: 620px;
 }
 
 .hero-actions {
@@ -431,13 +440,6 @@ button,
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 32px;
-}
-
-.hero-label-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 410px;
-  margin-left: auto;
 }
 
 .offline-pill {
@@ -455,13 +457,6 @@ button,
   line-height: 1;
 }
 
-.hero-label-wrap .offline-pill {
-  position: absolute;
-  top: -13px;
-  left: -12px;
-  z-index: 2;
-}
-
 html:not(.dark) .offline-pill {
   background-color: var(--surface);
 }
@@ -474,75 +469,10 @@ html:not(.dark) .offline-pill {
   flex-shrink: 0;
 }
 
-.qr-label-card {
-  background-color: var(--label-bg);
-  color: var(--label-text);
-  border-radius: var(--radius-label);
-  border: 1px solid var(--line);
-  padding: 36px 28px 24px;
-}
-
-.qr-code-box {
-  display: flex;
-  justify-content: center;
-  padding: 4px 0 28px;
-}
-
-.qr-code-svg {
-  width: 152px;
-  height: 152px;
-  color: var(--label-text);
-}
-
-.qr-meta-list {
-  margin: 0;
-}
-
-.qr-meta-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-  padding: 12px 0;
-  border-top: 1px solid var(--label-line);
-}
-
-.qr-meta-row dt {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--label-muted);
-}
-
-.qr-meta-row dd {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--label-text);
-  text-align: right;
-}
-
-@media (max-width: 900px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 44px;
-  }
-
-  .hero-label-wrap {
-    margin-inline: auto;
-    max-width: 460px;
-  }
-
-  .hero-label-wrap .offline-pill {
-    left: 14px;
-  }
-}
-
 @media (max-width: 767px) {
   .hero-section {
-    padding-top: 36px;
+    padding-top: 24px;
+    padding-bottom: 56px;
   }
 
   .hero-copy {
@@ -558,10 +488,6 @@ html:not(.dark) .offline-pill {
     flex: 1 1 150px;
   }
 
-  .qr-label-card {
-    padding: 32px 22px 20px;
-  }
-
   .theme-toggle-btn {
     bottom: calc(16px + env(safe-area-inset-bottom, 0px));
     right: 16px;
@@ -573,7 +499,7 @@ html:not(.dark) .offline-pill {
    ========================================================================== */
 
 .stack-band {
-  margin-top: 88px;
+  margin-top: 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   padding: 28px 0;
@@ -620,7 +546,6 @@ html:not(.dark) .offline-pill {
 
 @media (max-width: 767px) {
   .stack-band {
-    margin-top: 64px;
     padding: 24px 0;
   }
 

@@ -16,12 +16,6 @@
   --accent: #E3A34B;
   --on-accent: #1A1308;
 
-  /* Etiqueta impresa del hero (papel crema fijo por diseño) */
-  --label-bg: #EFE8DA;
-  --label-text: #17140F;
-  --label-muted: #5E5648;
-  --label-line: rgba(23, 20, 15, 0.14);
-
   /* Estados semánticos sobrios (contraste >= 4.5:1) */
   --status-dot: #4CAF78;
   --status-info-bg: #211E19;
