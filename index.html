@@ -67,7 +67,10 @@
     <section class="hero-section">
       <div class="container">
         <span class="mono-label">Desarrollador Jr. · Danlí, Honduras</span>
-        <h1 class="hero-title">Software que sirve, <em class="accent-italic">y funciona.</em></h1>
+        <h1 class="hero-title" aria-label="Software que sirve, y funciona.">
+          <span class="hero-typewriter-sizer">Software que sirve, <em class="accent-italic">y funciona.</em></span>
+          <span id="hero-typewriter" class="hero-typewriter-live" aria-hidden="true"></span>
+        </h1>
         <p class="hero-copy">
           Soy estudiante de Ingeniería en Sistemas Computacionales. Construyo herramientas que resuelven problemas reales: desde etiquetas QR generadas desde Excel hasta la trazabilidad de una planta tabacalera.
         </p>
@@ -205,11 +208,38 @@
                 Genera etiquetas con códigos QR para gestionar la trazabilidad de la producción en una empresa tabacalera. Es multiusuario y offline-first: se usa sin conexión a internet, con alta disponibilidad.
               </p>
               <div class="project-tags">
-                <span class="tech-pill">Dart</span>
-                <span class="tech-pill">Flutter</span>
-                <span class="tech-pill">SQLite</span>
-                <span class="tech-pill">Supabase</span>
-                <span class="tech-pill">Zebra ZPL</span>
+                <span class="tech-pill">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                    <path d="M4.105 4.105S9.158 1.58 11.684.316a3.079 3.079 0 0 1 1.481-.315c.766.047 1.677.788 1.677.788L24 9.948v9.789h-4.263V24H9.789l-9-9C.303 14.5 0 13.795 0 13.105c0-.319.18-.818.316-1.105l3.789-7.895zm.679.679v11.787c.002.543.021 1.024.498 1.508L10.204 23h8.533v-4.263L4.784 4.784zm12.055-.678c-.899-.896-1.809-1.78-2.74-2.643-.302-.267-.567-.468-1.07-.462-.37.014-.87.195-.87.195L6.341 4.105l10.498.001z"/>
+                  </svg>
+                  <span>Dart</span>
+                </span>
+                <span class="tech-pill">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                    <path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/>
+                  </svg>
+                  <span>Flutter</span>
+                </span>
+                <span class="tech-pill">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                    <path d="M21.678.521c-1.032-.92-2.28-.55-3.513.544a8.71 8.71 0 0 0-.547.535c-2.109 2.237-4.066 6.38-4.674 9.544.237.48.422 1.093.544 1.561a13.044 13.044 0 0 1 .164.703s-.019-.071-.096-.296l-.05-.146a1.689 1.689 0 0 0-.033-.08c-.138-.32-.518-.995-.686-1.289-.143.423-.27.818-.376 1.176.484.884.778 2.4.778 2.4s-.025-.099-.147-.442c-.107-.303-.644-1.244-.772-1.464-.217.804-.304 1.346-.226 1.478.152.256.296.698.422 1.186.286 1.1.485 2.44.485 2.44l.017.224a22.41 22.41 0 0 0 .056 2.748c.095 1.146.273 2.13.5 2.657l.155-.084c-.334-1.038-.47-2.399-.41-3.967.09-2.398.642-5.29 1.661-8.304 1.723-4.55 4.113-8.201 6.3-9.945-1.993 1.8-4.692 7.63-5.5 9.788-.904 2.416-1.545 4.684-1.931 6.857.666-2.037 2.821-2.912 2.821-2.912s1.057-1.304 2.292-3.166c-.74.169-1.955.458-2.362.629-.6.251-.762.337-.762.337s1.945-1.184 3.613-1.72C21.695 7.9 24.195 2.767 21.678.521m-18.573.543A1.842 1.842 0 0 0 1.27 2.9v16.608a1.84 1.84 0 0 0 1.835 1.834h9.418a22.953 22.953 0 0 1-.052-2.707c-.006-.062-.011-.141-.016-.2a27.01 27.01 0 0 0-.473-2.378c-.121-.47-.275-.898-.369-1.057-.116-.197-.098-.31-.097-.432 0-.12.015-.245.037-.386a9.98 9.98 0 0 1 .234-1.045l.217-.028c-.017-.035-.014-.065-.031-.097l-.041-.381a32.8 32.8 0 0 1 .382-1.194l.2-.019c-.008-.016-.01-.038-.018-.053l-.043-.316c.63-3.28 2.587-7.443 4.8-9.791.066-.069.133-.128.198-.194Z"/>
+                  </svg>
+                  <span>SQLite</span>
+                </span>
+                <span class="tech-pill">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                    <path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/>
+                  </svg>
+                  <span>Supabase</span>
+                </span>
+                <span class="tech-pill">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true">
+                    <polyline points="6 9 6 2 18 2 18 9"/>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                    <rect x="6" y="14" width="12" height="8"/>
+                  </svg>
+                  <span>Zebra ZPL</span>
+                </span>
               </div>
               <div class="project-links">
                 <a href="trazabilidapp.html" class="project-link">Ver arquitectura y detalle ↗</a>
@@ -263,9 +293,24 @@
                 Visualizo y doy seguimiento a mi plan de estudios universitario. Resolví retos de permisos RLS en Postgres y autenticación segura con Supabase Auth.
               </p>
               <div class="project-tags">
-                <span class="tech-pill">Supabase</span>
-                <span class="tech-pill">JavaScript</span>
-                <span class="tech-pill">Tailwind CSS</span>
+                <span class="tech-pill">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                    <path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/>
+                  </svg>
+                  <span>Supabase</span>
+                </span>
+                <span class="tech-pill">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                    <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+                  </svg>
+                  <span>JavaScript</span>
+                </span>
+                <span class="tech-pill">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                    <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/>
+                  </svg>
+                  <span>Tailwind CSS</span>
+                </span>
               </div>
               <div class="project-links">
                 <a href="plan-de-estudios.html" class="project-link">Visitar sitio ↗</a>
@@ -320,8 +365,18 @@
                 Genera etiquetas con códigos QR a partir de archivos Excel, con selección configurable de columna y separador para el QR, y exportación a PDF con tamaño de página personalizado.
               </p>
               <div class="project-tags">
-                <span class="tech-pill">VB.NET</span>
-                <span class="tech-pill">Windows Forms</span>
+                <span class="tech-pill">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                    <path d="M24 8.77h-2.468v7.565h-1.425V8.77h-2.462V7.53H24zm-6.852 7.565h-4.821V7.53h4.63v1.24h-3.205v2.494h2.953v1.234h-2.953v2.604h3.396zm-6.708 0H8.882L4.78 9.863a2.896 2.896 0 0 1-.258-.51h-.036c.032.189.048.592.048 1.21v5.772H3.157V7.53h1.659l3.965 6.32c.167.261.275.442.323.54h.024c-.04-.233-.06-.629-.06-1.185V7.529h1.372zm-8.703-.693a.868.829 0 0 1-.869.829.868.829 0 0 1-.868-.83.868.829 0 0 1 .868-.828.868.829 0 0 1 .869.829Z"/>
+                  </svg>
+                  <span>VB.NET</span>
+                </span>
+                <span class="tech-pill">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                    <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+                  </svg>
+                  <span>Windows Forms</span>
+                </span>
               </div>
               <div class="project-links">
                 <a href="https://github.com/itomejiacastillo/exceltoqr" target="_blank" rel="noopener noreferrer" class="project-link">GitHub ↗</a>
@@ -340,25 +395,25 @@
                   <span class="frame-url">leostamales.com</span>
                 </div>
                 <div class="pswp-gallery" id="gallery-leostamales">
-                  <a href="assets/screenshots/leostamales-1.webp?v=3"
-                     data-pswp-width="1000" data-pswp-height="650"
+                  <a href="assets/screenshots/leostamales-1.webp?v=4"
+                     data-pswp-width="1012" data-pswp-height="632"
                      target="_blank" rel="noopener noreferrer">
-                    <img src="assets/screenshots/leostamales-1.webp?v=3" alt="leostamales.com mostrando la sección principal renovada y botón flotante del carrito" width="1000" height="650" loading="lazy">
+                    <img src="assets/screenshots/leostamales-1.webp?v=4" alt="leostamales.com mostrando la sección principal renovada y botón flotante del carrito" width="1012" height="632" loading="lazy">
                   </a>
-                  <a href="assets/screenshots/leostamales-2.webp?v=3"
-                     data-pswp-width="1000" data-pswp-height="650"
+                  <a href="assets/screenshots/leostamales-2.webp?v=4"
+                     data-pswp-width="1012" data-pswp-height="632"
                      class="pswp-hidden" target="_blank" rel="noopener noreferrer">
-                    <img src="assets/screenshots/leostamales-2.webp?v=3" alt="leostamales.com mostrando el menú de tamales con selectores de cantidad para el carrito" width="1000" height="650" loading="lazy">
+                    <img src="assets/screenshots/leostamales-2.webp?v=4" alt="leostamales.com mostrando el menú de tamales con selectores de cantidad para el carrito" width="1012" height="632" loading="lazy">
                   </a>
-                  <a href="assets/screenshots/leostamales-3.webp?v=3"
-                     data-pswp-width="1000" data-pswp-height="680"
+                  <a href="assets/screenshots/leostamales-3.webp?v=4"
+                     data-pswp-width="1012" data-pswp-height="632"
                      class="pswp-hidden" target="_blank" rel="noopener noreferrer">
-                    <img src="assets/screenshots/leostamales-3.webp?v=3" alt="leostamales.com mostrando el modal del carrito de compras persistido en localStorage" width="1000" height="680" loading="lazy">
+                    <img src="assets/screenshots/leostamales-3.webp?v=4" alt="leostamales.com mostrando el modal del carrito de compras persistido en localStorage" width="1012" height="632" loading="lazy">
                   </a>
-                  <a href="assets/screenshots/leostamales-4.webp?v=3"
-                     data-pswp-width="1000" data-pswp-height="650"
+                  <a href="assets/screenshots/leostamales-4.webp?v=4"
+                     data-pswp-width="1012" data-pswp-height="632"
                      class="pswp-hidden" target="_blank" rel="noopener noreferrer">
-                    <img src="assets/screenshots/leostamales-4.webp?v=3" alt="leostamales.com mostrando el formulario de entrega y envío de pedido por correo y WhatsApp" width="1000" height="650" loading="lazy">
+                    <img src="assets/screenshots/leostamales-4.webp?v=4" alt="leostamales.com mostrando el formulario de entrega y envío de pedido por correo y WhatsApp" width="1012" height="632" loading="lazy">
                   </a>
                 </div>
               </div>
@@ -380,9 +435,24 @@
                 Landing page que diseñé y desarrollé para promocionar el negocio Leo's Tamales en Los Ángeles, California. Enfocada en presentación de producto, información de contacto y llamado a la acción.
               </p>
               <div class="project-tags">
-                <span class="tech-pill">HTML</span>
-                <span class="tech-pill">CSS</span>
-                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                    <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
+                  </svg>
+                  <span>HTML</span>
+                </span>
+                <span class="tech-pill">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                    <path d="M0 0v20.16A3.84 3.84 0 0 0 3.84 24h16.32A3.84 3.84 0 0 0 24 20.16V3.84A3.84 3.84 0 0 0 20.16 0Zm14.256 13.08c1.56 0 2.28 1.08 2.304 2.64h-1.608c.024-.288-.048-.6-.144-.84-.096-.192-.288-.264-.552-.264-.456 0-.696.264-.696.84-.024.576.288.888.768 1.08.72.288 1.608.744 1.92 1.296q.432.648.432 1.656c0 1.608-.912 2.592-2.496 2.592-1.656 0-2.4-1.032-2.424-2.688h1.68c0 .792.264 1.176.792 1.176.264 0 .456-.072.552-.24.192-.312.24-1.176-.048-1.512-.312-.408-.912-.6-1.32-.816q-.828-.396-1.224-.936c-.24-.36-.36-.888-.36-1.536 0-1.44.936-2.472 2.424-2.448m5.4 0c1.584 0 2.304 1.08 2.328 2.64h-1.608c0-.288-.048-.6-.168-.84-.096-.192-.264-.264-.528-.264-.48 0-.72.264-.72.84s.288.888.792 1.08c.696.288 1.608.744 1.92 1.296.264.432.408.984.408 1.656.024 1.608-.888 2.592-2.472 2.592-1.68 0-2.424-1.056-2.448-2.688h1.68c0 .744.264 1.176.792 1.176.264 0 .456-.072.552-.24.216-.312.264-1.176-.048-1.512-.288-.408-.888-.6-1.32-.816-.552-.264-.96-.576-1.2-.936s-.36-.888-.36-1.536c-.024-1.44.912-2.472 2.4-2.448m-11.031.018c.711-.006 1.419.198 1.839.63.432.432.672 1.128.648 1.992H9.336c.024-.456-.096-.792-.432-.96-.312-.144-.768-.048-.888.24-.12.264-.192.576-.168.864v3.504c0 .744.264 1.128.768 1.128a.65.65 0 0 0 .552-.264c.168-.24.192-.552.168-.84h1.776c.096 1.632-.984 2.712-2.568 2.688-1.536 0-2.496-.864-2.472-2.472v-4.032c0-.816.24-1.44.696-1.848.432-.408 1.146-.624 1.857-.63"/>
+                  </svg>
+                  <span>CSS</span>
+                </span>
+                <span class="tech-pill">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                    <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+                  </svg>
+                  <span>JavaScript</span>
+                </span>
               </div>
               <div class="project-links">
                 <a href="https://leostamales.com" target="_blank" rel="noopener noreferrer" class="project-link">Visitar sitio ↗</a>

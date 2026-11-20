@@ -376,6 +376,8 @@ async function handleEditSubmit(event) {
   }
 }
 
+let lastSummary = { approved: 0, total: 0, percent: 0 };
+
 function updateSummary() {
   const checkboxes = [...document.querySelectorAll("#subjects-grid input[type='checkbox']")];
   const approved = checkboxes.filter((checkbox) => checkbox.checked).length;
@@ -389,9 +391,43 @@ function updateSummary() {
   }
 
   const percent = (approved / total) * 100;
-  elements.approved.textContent = String(approved).padStart(2, "0");
-  elements.total.textContent = String(total).padStart(2, "0");
-  elements.percent.textContent = `${percent.toFixed(2)}%`;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function applySummary(curApproved, curTotal, curPercent) {
+    elements.approved.textContent = String(curApproved).padStart(2, "0");
+    elements.total.textContent = String(curTotal).padStart(2, "0");
+    elements.percent.textContent = `${curPercent.toFixed(2)}%`;
+  }
+
+  if (reduceMotion) {
+    applySummary(approved, total, percent);
+    lastSummary = { approved, total, percent };
+    return;
+  }
+
+  const from = { ...lastSummary };
+  const duration = 600;
+  const startTime = performance.now();
+
+  function tick(now) {
+    const t = Math.min((now - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+
+    applySummary(
+      Math.round(from.approved + (approved - from.approved) * eased),
+      Math.round(from.total + (total - from.total) * eased),
+      from.percent + (percent - from.percent) * eased
+    );
+
+    if (t < 1) {
+      requestAnimationFrame(tick);
+    } else {
+      applySummary(approved, total, percent);
+      lastSummary = { approved, total, percent };
+    }
+  }
+
+  requestAnimationFrame(tick);
 }
 
 function bindProgressEvents() {

@@ -108,12 +108,55 @@ if (revealTargets.length > 0 && !reduceMotionQuery.matches && 'IntersectionObser
         obs.unobserve(entry.target);
       });
     },
-    { threshold: 0.08, rootMargin: '0px 0px -24px 0px' }
+    { threshold: 0.01, rootMargin: '0px 0px -18% 0px' }
   );
 
   revealTargets.forEach(function (el) {
     observer.observe(el);
   });
+}
+
+// --- Hero Typewriter animation (respects prefers-reduced-motion, zero CLS) ---
+const heroTypewriter = document.getElementById('hero-typewriter');
+const heroSizer = document.querySelector('.hero-typewriter-sizer');
+
+if (heroTypewriter && heroSizer && !reduceMotionQuery.matches) {
+  const leadText = 'Software que sirve, ';
+  const accentText = 'y funciona.';
+  const totalChars = leadText.length + accentText.length;
+
+  heroSizer.classList.add('is-measuring');
+  heroSizer.setAttribute('aria-hidden', 'true');
+
+  const leadNode = document.createTextNode('');
+  const accentEl = document.createElement('em');
+  accentEl.className = 'accent-italic';
+  const caret = document.createElement('span');
+  caret.className = 'typewriter-caret';
+  caret.setAttribute('aria-hidden', 'true');
+
+  heroTypewriter.append(leadNode, accentEl, caret);
+
+  let index = 0;
+  const charDelay = 38;
+
+  function stepTypewriter() {
+    index += 1;
+    if (index <= leadText.length) {
+      leadNode.nodeValue = leadText.slice(0, index);
+    } else {
+      leadNode.nodeValue = leadText;
+      accentEl.textContent = accentText.slice(0, index - leadText.length);
+    }
+
+    if (index < totalChars) {
+      window.setTimeout(stepTypewriter, charDelay);
+    } else {
+      caret.classList.add('is-done');
+    }
+  }
+
+  window.setTimeout(stepTypewriter, 120);
 }
 
 // --- Academic progress ring & 61-cell bar (Supabase) ---
@@ -156,26 +199,82 @@ if (progressRingWrapper) {
     cellsGrid.replaceChildren(fragment);
   }
 
-  function renderProgress(aprobadas, total, percent) {
-    setLoadingState(false);
+  function animateProgressNumbers(aprobadas, total, percent) {
+    const remaining = Math.max(0, total - aprobadas);
 
-    if (detail) {
-      detail.textContent = `Universidad Politécnica de Honduras · ${aprobadas} de ${total} asignaturas aprobadas`;
+    function applyValues(curApproved, curRemaining, curPercent) {
+      if (detail) {
+        detail.textContent = `Universidad Politécnica de Honduras · ${curApproved} de ${total} asignaturas aprobadas`;
+      }
+      if (label) {
+        label.textContent = `${curPercent}%`;
+      }
+      if (approvedLabel) {
+        approvedLabel.textContent = `${curApproved} aprobadas`;
+      }
+      if (remainingLabel) {
+        remainingLabel.textContent = `${curRemaining} por cursar`;
+      }
     }
-    if (label) {
-      label.textContent = `${percent}%`;
-    }
+
     if (circle) {
       requestAnimationFrame(function () {
         circle.style.strokeDashoffset = String(CIRCUMFERENCE * (1 - percent / 100));
       });
     }
 
+    if (reduceMotionQuery.matches) {
+      applyValues(aprobadas, remaining, percent);
+      return;
+    }
+
+    const duration = 650;
+    const startTime = performance.now();
+
+    function tick(now) {
+      const elapsed = now - startTime;
+      const t = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+
+      applyValues(
+        Math.round(aprobadas * eased),
+        Math.round(remaining * eased),
+        Math.round(percent * eased)
+      );
+
+      if (t < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        applyValues(aprobadas, remaining, percent);
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  function renderProgress(aprobadas, total, percent) {
+    setLoadingState(false);
     renderProgressCells(aprobadas, total);
 
-    const remaining = Math.max(0, total - aprobadas);
-    if (approvedLabel) approvedLabel.textContent = `${aprobadas} aprobadas`;
-    if (remainingLabel) remainingLabel.textContent = `${remaining} por cursar`;
+    if (reduceMotionQuery.matches || !educationCard || !('IntersectionObserver' in window)) {
+      animateProgressNumbers(aprobadas, total, percent);
+      return;
+    }
+
+    let hasAnimated = false;
+    const cardObserver = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting || hasAnimated) return;
+          hasAnimated = true;
+          animateProgressNumbers(aprobadas, total, percent);
+          obs.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    cardObserver.observe(educationCard);
   }
 
   async function loadAcademicProgress() {
