@@ -541,6 +541,28 @@ html:not(.dark) .offline-pill {
   }
 }
 
+@media (min-width: 768px) {
+  .hero-fold {
+    min-height: calc(100vh - 81px);
+    min-height: calc(100dvh - 81px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-fold .hero-section {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: 48px;
+  }
+
+  .hero-fold .stack-band {
+    margin-top: auto;
+    flex-shrink: 0;
+  }
+}
+
 /* ==========================================================================
    Franja MI STACK
    ========================================================================== */
